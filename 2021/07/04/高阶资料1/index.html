@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="">
+  <title>vue 高阶内容 | 彼方のE栈</title>
+  <meta name="author" content="境界の彼方" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="JavaScript, Node, vdom, vue" />
+  
+  <meta name="description" content="vue 高阶内容vuejsvue.js 有个几个核心思：  虚拟dom  响应式数据 组件通信  虚拟DOM（Virtual-DOM）真实DOM与渲染流程首先要想了解虚拟DOM，就需要了解什么是真实DOM；如下图为webkit渲染引擎工作流程（概括）  无论是什么浏览器的内核引擎，基本的渲染工作流程分为5个步骤：创建DOM树 —&gt; 创建style rules（常见css 样式树） —&gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue 高阶内容">
+<meta property="og:url" content="http://example.com/2021/07/04/%E9%AB%98%E9%98%B6%E8%B5%84%E6%96%991/index.html">
+<meta property="og:site_name" content="彼方のE栈">
+<meta property="og:description" content="vue 高阶内容vuejsvue.js 有个几个核心思：  虚拟dom  响应式数据 组件通信  虚拟DOM（Virtual-DOM）真实DOM与渲染流程首先要想了解虚拟DOM，就需要了解什么是真实DOM；如下图为webkit渲染引擎工作流程（概括）  无论是什么浏览器的内核引擎，基本的渲染工作流程分为5个步骤：创建DOM树 —&gt; 创建style rules（常见css 样式树） —&gt;">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/null">
+<meta property="article:published_time" content="2021-07-04T14:12:22.000Z">
+<meta property="article:modified_time" content="2024-01-02T01:12:08.529Z">
+<meta property="article:author" content="境界の彼方">
+<meta property="article:tag" content="Node">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="vdom">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/null">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
+    
+      <meta name="google-site-verification" content="fVGTHvD3aoZ4YyO3S4WbusH7mbbYHqxjGcH_2_yjfp4" />
+    
+    
+      <meta name="baidu-site-verification" content="code-0fihzGJtdx" />
+    
+    
+      <meta name="msvalidate.01" content="0BD48478F2FB17419C4A9364056B5B44" />
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+<link rel="alternate" href="/atom.xml" title="彼方のE栈" type="application/atom+xml">
+</head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li><a target="_blank" rel="noopener" href="https://hlymcn.com/serve-csgo/index.html"><i class="fa fa-server"></i>csgo服务器</a></li>
+                                    
+                                
+                                    
+                                        <li><a target="_blank" rel="noopener" href="https://hlymcn.com/svgedit/index.html"><i class="fa fa-reddit-alien"></i>svg工作台</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fa fa-paw"></i>好伙伴</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/about/"><i class="fa fa-send"></i>关于我</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS订阅</a></li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">彼方のE栈</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>彼方のE栈</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article>
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center">vue 高阶内容</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><i class="fa fa-calendar"></i> 2021-07-04</li>
+                <li><i class="fa fa-user"></i> 作者 境界の彼方</li>
+                <li>
+                    <i class="fa fa-edit"></i> 
+                    
+                    
+                        ~4.18K
+                    
+                    字
+                </li>
+                
+                    <li id="/2021/07/04/%E9%AB%98%E9%98%B6%E8%B5%84%E6%96%991/" class="leancloud_visitors" data-flag-title="vue 高阶内容">
+                        <i class="fa fa-eye"></i>
+                        <span class="leancloud-visitors-count"> </span> 次阅读
+                    </li>
+                    
+                        <li>
+                            <i class="fa fa-commenting-o"></i>
+                            <span data-xid="/2021/07/04/%E9%AB%98%E9%98%B6%E8%B5%84%E6%96%991/" class="waline-comment-count"> </span> 条评论
+                        </li>
+                    
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                本文最后编辑于 <time datetime="1704157928529"></time> 前，其中的内容可能需要更新。
+            </div>
+            
+                <div class="kratos-post-inner-toc">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue-%E9%AB%98%E9%98%B6%E5%86%85%E5%AE%B9"><span class="toc-number">1.</span> <span class="toc-text">vue 高阶内容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vuejs"><span class="toc-number">1.1.</span> <span class="toc-text">vuejs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9FDOM%EF%BC%88Virtual-DOM%EF%BC%89"><span class="toc-number">1.1.1.</span> <span class="toc-text">虚拟DOM（Virtual-DOM）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9EDOM%E4%B8%8E%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">真实DOM与渲染流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Virtual-DOM%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">Virtual-DOM基础</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%99%9A%E6%8B%9FDOM%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-number">1.1.1.2.1.</span> <span class="toc-text">虚拟DOM的好处</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">算法实现</span></a></li></ol></li></ol></li></ol></li></ol>
+                </div>
+            
+            <hr />
+            <h1 id="vue-高阶内容"><a href="#vue-高阶内容" class="headerlink" title="vue 高阶内容"></a>vue 高阶内容</h1><h2 id="vuejs"><a href="#vuejs" class="headerlink" title="vuejs"></a>vuejs</h2><p>vue.js 有个几个核心思：</p>
+<ul>
+<li>虚拟dom </li>
+<li>响应式数据</li>
+<li>组件通信</li>
+</ul>
+<h3 id="虚拟DOM（Virtual-DOM）"><a href="#虚拟DOM（Virtual-DOM）" class="headerlink" title="虚拟DOM（Virtual-DOM）"></a>虚拟<code>DOM</code>（Virtual-DOM）</h3><h4 id="真实DOM与渲染流程"><a href="#真实DOM与渲染流程" class="headerlink" title="真实DOM与渲染流程"></a>真实<code>DOM</code>与渲染流程</h4><p>首先要想了解虚拟DOM，就需要了解什么是真实DOM；<br>如下图为<code>webkit</code>渲染引擎工作流程（概括）</p>
+<p><img src="https://greenhaha.oss-cn-beijing.aliyuncs.com/frontend/assets/img/%E7%9C%9F%E5%AE%9Edom%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B.jpg" alt="webkit渲染流程"></p>
+<p>无论是什么浏览器的内核引擎，基本的渲染工作流程分为5个步骤：<br><br>创建DOM树 —&gt; 创建style rules（常见css 样式树） —&gt; 构建Render 树  —&gt; 布局Layout  —&gt; Painting</p>
+<ul>
+<li>第一步，构建DOM树：用HTML解析器解析HTML 标签等相关元素，构建出一颗DOM树</li>
+<li>第二步，生成样式表：用css解析器，分析css文件和元素上inline样式（行内样式），生成页面的样式表；</li>
+<li>第三部，构建Render树：将DOM树和样式树关联以来，构建出一颗render树（Attachment）。每个DOM节点都有一个attach方法，接受样式信息，返回一个render对象，这些render对象最终会被构建成一颗render树</li>
+<li>第四步，确定节点坐标：根绝render树结构，为每个render树上的节点确定一个在显示器上的精确坐标</li>
+<li>第五步，绘制页面：根据render树与节点坐标，然后调用每个节点的paint方法，将他们绘制出来</li>
+</ul>
+<blockquote>
+<ul>
+<li><code>DOM</code>树的构建是文档加载完成开始吗？<br><br>  构建<code>DOM</code>树是一个渐进式的构成，为了给用户一个更好的体验，渲染引擎会将内容尽快的显示出来而不是等待所有HTML文档解析完成后才开始构建<code>render</code>树和布局</li>
+<li><code>render</code>树是<code>DOM</code>树和<code>CSS</code>样式表构建完成后开始构建的吗？<br><br>  因为浏览器的解析是渐进式的过程，所有这3个过程在实际进行的时候并不是完全独立的，会有交叉的过程，会边加载，边解析，边渲染</li>
+<li><code>CSS</code>的解析注意点？<br><br>  <code>CSS</code>的解析是从右往左解析嵌套的样式越多，解析的越慢</li>
+<li><code>JS</code>操作真实<code>DOM</code>代价？<br><br>  原生<code>JS</code>操作<code>DOM</code>时，浏览器会按照上面的构建顺序进行构建，当操作了10个<code>DOM</code>节点的时候，浏览器在获取到第一个<code>DOM</code>节点时会直接进行上述的构建顺序构建，并不会获知后面的9个需要变更的<code>DOM</code>节点，当第一个执行完成后依次进行剩下的9个构建，造成了性能浪费，即使计算器硬件一直在迭代，操作的DOM的代价也是很昂贵的，频繁的操作会造成页面的卡顿，影响用的体验</li>
+</ul>
+</blockquote>
+<h4 id="Virtual-DOM基础"><a href="#Virtual-DOM基础" class="headerlink" title="Virtual-DOM基础"></a><code>Virtual-DOM</code>基础</h4><h5 id="虚拟DOM的好处"><a href="#虚拟DOM的好处" class="headerlink" title="虚拟DOM的好处"></a>虚拟<code>DOM</code>的好处</h5><p>虚拟<code>DOM</code>是为了解决浏览器性能问题而设计出来的。如果一次操作更新10个<code>DOM</code>的动作，虚拟<code>DOM</code>不会立即操作<code>DOM</code>，而是将这10次更新的<code>diff</code>内容保存到本地一个<code>JS</code>对象中，最终将这个<code>JS</code>对象一次性<code>attach</code>到<code>DOM</code>树上，再进行后续操作，避免大量无所谓的计算量。所以用<code>JS</code>对象模拟<code>DOM</code>节点的好处就是页面的更新可以先全部反映在<code>JS</code>对象（虚拟<code>DOM</code>）上，操作内存中的<code>JS</code>对象的速度显然要更快，等更新完成后，再将最终<code>JS</code>对象映射到真实<code>DOM</code>，有浏览器去绘制</p>
+<h4 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h4><blockquote>
+<ul>
+<li>如何用<code>JS</code>对象模拟<code>DOM</code>树<br>这是一个真实的<code>DOM</code>树</li>
+</ul>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;virtual-dom&quot;&gt;</span><br><span class="line">&lt;ul id=&quot;list&quot;&gt;</span><br><span class="line">  &lt;li class=&quot;item&quot;&gt;Item 1&lt;/li&gt;</span><br><span class="line">  &lt;li class=&quot;item&quot;&gt;Item 2&lt;/li&gt;</span><br><span class="line">  &lt;li class=&quot;item&quot;&gt;Item 3&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&lt;div&gt;Hello World&lt;/div&gt;</span><br><span class="line">&lt;/div&gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>用<code>JavaScript</code>来表示一个DOM节点很容易，需要记住节点的类型、属性、还有子节点：<br><code>element.js</code> 表示节点对象的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Element virdual-dom 对象定义</span><br><span class="line"> * @param &#123;String&#125; tagName - dom 元素名称</span><br><span class="line"> * @param &#123;Object&#125; props - dom 属性</span><br><span class="line"> * @param &#123;Array&lt;Element|String&gt;&#125; - 子节点</span><br><span class="line"> */</span><br><span class="line">function Element(tagName, props, children) &#123;</span><br><span class="line">    this.tagName = tagName</span><br><span class="line">    this.props = props</span><br><span class="line">    this.children = children</span><br><span class="line">    // dom 元素的 key 值，用作唯一标识符</span><br><span class="line">    if(props.key)&#123;</span><br><span class="line">       this.key = props.key</span><br><span class="line">    &#125;</span><br><span class="line">    var count = 0</span><br><span class="line">    children.forEach(function (child, i) &#123;</span><br><span class="line">        if (child instanceof Element) &#123;</span><br><span class="line">            count += child.count</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            children[i] = &#x27;&#x27; + child</span><br><span class="line">        &#125;</span><br><span class="line">        count++</span><br><span class="line">    &#125;)</span><br><span class="line">    // 子元素个数</span><br><span class="line">    this.count = count</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function createElement(tagName, props, children)&#123;</span><br><span class="line"> return new Element(tagName, props, children);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module.exports = createElement;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>更具<code>element</code>对象的设定，则上面的<code>DOM</code>结构就可以简单表示为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var el = require(&quot;./element.js&quot;)</span><br><span class="line">var ul = el(&#x27;div&#x27;, &#123;id:&#x27;virtual-dom&#x27;&#125;,[</span><br><span class="line">    el(&#x27;ul&#x27;, &#123;id:&#x27;list&#x27;&#125;, [</span><br><span class="line">        el(&#x27;li&#x27;, &#123;class:&#x27;item&#x27;&#125;, [&#x27;Item 1&#x27;]),</span><br><span class="line">        el(&#x27;li&#x27;, &#123;class:&#x27;item&#x27;&#125;, [&#x27;Item 2&#x27;]),</span><br><span class="line">        el(&#x27;li&#x27;, &#123;class:&#x27;item&#x27;&#125;, [&#x27;Item 3&#x27;])</span><br><span class="line">    ]),</span><br><span class="line">    el(&#x27;div&#x27;, &#123;&#125;, [&#x27;Hello World&#x27;])</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+<p>现在<code>ul</code>就是我们用<code>JavaScript</code>对象表示的DOM结构，输出查看<code>ul</code>对应的数据结构：<br><img src="https://greenhaha.oss-cn-beijing.aliyuncs.com/frontend/assets/img/ul%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.jpg" alt="ul数据结构"></p>
+<blockquote>
+<ul>
+<li>渲染用<code>JS</code>表示的<code>DOM</code>对象<br>由于这是<code>JS</code>表示的<code>DOM</code>对象,在浏览器中是无法表示的，因此需要将<code>ul</code>渲染成页面上真实的<code>DOM</code>结构需要进行渲染函数渲染：</li>
+</ul>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * render 将virdual-dom 对象渲染为实际 DOM 元素</span><br><span class="line"> */</span><br><span class="line">Element.prototype.render = function () &#123;</span><br><span class="line">    var el = document.createElement(this.tagName)</span><br><span class="line">    var props = this.props</span><br><span class="line">    // 设置节点的DOM属性</span><br><span class="line">    for (var propName in props) &#123;</span><br><span class="line">        var propValue = props[propName]</span><br><span class="line">        el.setAttribute(propName, propValue)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var children = this.children || []</span><br><span class="line">    children.forEach(function (child) &#123;</span><br><span class="line">        var childEl = (child instanceof Element)</span><br><span class="line">            ? child.render() // 如果子节点也是虚拟DOM，递归构建DOM节点</span><br><span class="line">            : document.createTextNode(child) // 如果字符串，只构建文本节点</span><br><span class="line">        el.appendChild(childEl)</span><br><span class="line">    &#125;)</span><br><span class="line">    return el</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<p>我们通过查看以上<code>render</code>方法,会根据<code>tagName</code>构建一个真正的<code>DOM</code>节点，然后设置这个节点的属性，最后递归的把自己的子节点也构建起来.<br>我们将构建好的<code>DOM</code>结构添加到页面<code>body</code>上面，如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ulRoot = ul.render();</span><br><span class="line">document.body.appendChild(ulRoot); </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>真正渲染到<code>body</code>中真正的<code>DOM</code>结构<br><br><img src="https://greenhaha.oss-cn-beijing.aliyuncs.com/frontend/assets/img/body.jpg" alt="ul真实DOM结构"></p>
+<blockquote>
+<ul>
+<li>比较两颗虚拟<code>DOM</code>树的差异-<code>diff</code> 算法</li>
+</ul>
+</blockquote>
+<p>diff算法用来比较两颗V-dom树的差异。如果要对2颗树完全比较，那么diff算法的事件发展度为<code>O(n^3)</code>, 但是对于前端来说，很少会进行跨越层级的移动<code>DOM</code>元素，所以<code>V-dom</code>只会对同一个层级的元素进行对比。如图所示，<code>div</code>只会和同级的<code>div</code>对比，第二层级的只会跟第二层级的对比，因此复杂度就降为了<code>O(n)</code><br><img src="https://greenhaha.oss-cn-beijing.aliyuncs.com/frontend/assets/img/diff%E6%AF%94%E8%BE%83%E5%9B%BE.jpg" alt="diff算法"></p>
+
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5>本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2021/07/04/%E9%AB%98%E9%98%B6%E8%B5%84%E6%96%991/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2021/07/04/%E9%AB%98%E9%98%B6%E8%B5%84%E6%96%991/";
+            const title         = "「vue 高阶内容」";
+            const excerpt       = `vue 高阶内容vuejsvue.js 有个几个核心思：
+
+虚拟dom 
+响应式数据
+组件通信
+
+虚拟DOM（Virtual-DOM）真实DOM与渲染流程首先要想了解虚拟DOM，就需要了解什么是真实DOM；如下图为webkit渲染引擎...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="tag-none-link" href="/tags/Node/" rel="tag">Node</a>, <a class="tag-none-link" href="/tags/vdom/" rel="tag">vdom</a>, <a class="tag-none-link" href="/tags/vue/" rel="tag">vue</a>
+                </div>
+                <div class="pull-date">
+                <span>最后编辑：2024-01-02</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" react-router基础知识" href="/2021/06/30/react-router基础知识/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" NPM与YARN" href="/2021/07/04/yarn与npm/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+        <div id="w-comments" class="post-comments"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            new Waline(Object.assign({
+                el: '#w-comments',
+                path: '/2021/07/04/%E9%AB%98%E9%98%B6%E8%B5%84%E6%96%991/'
+            }, JSON.parse('{"serverURL":"https://myblog-api-hazel.vercel.app","visitor":true}')));
+        }
+        if (typeof Waline == 'undefined') {
+            const src = 'https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
+
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="https://greenhaha.oss-cn-beijing.aliyuncs.com/frontend/assets/header/header.png" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">爱折腾，啥都想看看的开发者</p>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar"></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue-%E9%AB%98%E9%98%B6%E5%86%85%E5%AE%B9"><span class="toc-text">vue 高阶内容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vuejs"><span class="toc-text">vuejs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9FDOM%EF%BC%88Virtual-DOM%EF%BC%89"><span class="toc-text">虚拟DOM（Virtual-DOM）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9EDOM%E4%B8%8E%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B"><span class="toc-text">真实DOM与渲染流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Virtual-DOM%E5%9F%BA%E7%A1%80"><span class="toc-text">Virtual-DOM基础</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%99%9A%E6%8B%9FDOM%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-text">虚拟DOM的好处</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">算法实现</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%A8%E6%96%B0%E4%BD%93%E9%AA%8C/">全新体验</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%A4%A7%E5%85%A8/">工具大全</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%A1%A3%E6%95%99%E7%A8%8B/">文档教程</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%89%96%E6%9E%90/">知识剖析</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/">规范总结</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E5%88%92%E6%80%BB%E7%BB%93/">计划总结</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/2023/" style="font-size: 0.6em;">2023</a> <a href="/tags/API/" style="font-size: 0.6em;">API</a> <a href="/tags/CSS/" style="font-size: 0.64em;">CSS</a> <a href="/tags/ELM/" style="font-size: 0.64em;">ELM</a> <a href="/tags/HTML/" style="font-size: 0.68em;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 0.8em;">JavaScript</a> <a href="/tags/JavaScript%E6%8A%80%E6%9C%AF/" style="font-size: 0.6em;">JavaScript技术</a> <a href="/tags/Node/" style="font-size: 0.76em;">Node</a> <a href="/tags/React/" style="font-size: 0.68em;">React</a> <a href="/tags/ReactNative/" style="font-size: 0.72em;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 0.6em;">TypeScript</a> <a href="/tags/Vue/" style="font-size: 0.6em;">Vue</a> <a href="/tags/chromeAPI/" style="font-size: 0.6em;">chromeAPI</a> <a href="/tags/express/" style="font-size: 0.64em;">express</a> <a href="/tags/express-session/" style="font-size: 0.6em;">express-session</a> <a href="/tags/git/" style="font-size: 0.6em;">git</a> <a href="/tags/google/" style="font-size: 0.6em;">google</a> <a href="/tags/hexo/" style="font-size: 0.6em;">hexo</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/05/%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-DASH/"><i class="fa  fa-book"></i> 流媒体协议-DASH</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/01/2023%E6%80%BB%E7%BB%93/"><i class="fa  fa-book"></i> 2023 总结</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2022/04/23/%E7%9B%B4%E6%92%AD%E5%8E%9F%E7%90%86%E4%B8%8E/"><i class="fa  fa-book"></i> 直播原理</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2022/03/16/express-session/"><i class="fa  fa-book"></i> express-session 原理</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2022/03/14/interface%E4%B8%8Etype/"><i class="fa  fa-book"></i> Interface 与 Type的区别</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:a15114101085@aliyun.com"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/greenhaha"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 彼方のE栈 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 境界の彼方.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">辽ICP备19004490号-2</a></li>
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+<script async src="/js/candy.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

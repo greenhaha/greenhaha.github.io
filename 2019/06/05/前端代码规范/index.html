@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="">
+  <title>前端代码规范 | 彼方のE栈</title>
+  <meta name="author" content="境界の彼方" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="CSS, HTML, JavaScript" />
+  
+  <meta name="description" content="基本原则符合web标准（UTF-8, HTML5）， 语义化HTML（HTML5新增语义化标签，减少div和span等无特定语义的标签使用），结构、样式、表现与行为分离（HTML-CSS-JS 代码分离，不同的行为代码高内聚低耦合），兼容性良好（早期版本浏览器兼容，移动端和PC端设备兼容），页面性能方面（减少请求次数，例如使用精灵图和sass语法），代码要求简洁明了有序，尽可能的减小服务器负载，保">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端代码规范">
+<meta property="og:url" content="http://example.com/2019/06/05/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/index.html">
+<meta property="og:site_name" content="彼方のE栈">
+<meta property="og:description" content="基本原则符合web标准（UTF-8, HTML5）， 语义化HTML（HTML5新增语义化标签，减少div和span等无特定语义的标签使用），结构、样式、表现与行为分离（HTML-CSS-JS 代码分离，不同的行为代码高内聚低耦合），兼容性良好（早期版本浏览器兼容，移动端和PC端设备兼容），页面性能方面（减少请求次数，例如使用精灵图和sass语法），代码要求简洁明了有序，尽可能的减小服务器负载，保">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/null">
+<meta property="article:published_time" content="2019-06-05T02:02:36.000Z">
+<meta property="article:modified_time" content="2024-01-02T01:12:08.521Z">
+<meta property="article:author" content="境界の彼方">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/null">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
+    
+      <meta name="google-site-verification" content="fVGTHvD3aoZ4YyO3S4WbusH7mbbYHqxjGcH_2_yjfp4" />
+    
+    
+      <meta name="baidu-site-verification" content="code-0fihzGJtdx" />
+    
+    
+      <meta name="msvalidate.01" content="0BD48478F2FB17419C4A9364056B5B44" />
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+<link rel="alternate" href="/atom.xml" title="彼方のE栈" type="application/atom+xml">
+</head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li><a target="_blank" rel="noopener" href="https://hlymcn.com/serve-csgo/index.html"><i class="fa fa-server"></i>csgo服务器</a></li>
+                                    
+                                
+                                    
+                                        <li><a target="_blank" rel="noopener" href="https://hlymcn.com/svgedit/index.html"><i class="fa fa-reddit-alien"></i>svg工作台</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fa fa-paw"></i>好伙伴</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/about/"><i class="fa fa-send"></i>关于我</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS订阅</a></li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">彼方のE栈</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>彼方のE栈</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article>
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center">前端代码规范</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><i class="fa fa-calendar"></i> 2019-06-05</li>
+                <li><i class="fa fa-user"></i> 作者 境界の彼方</li>
+                <li>
+                    <i class="fa fa-edit"></i> 
+                    
+                    
+                        ~13.03K
+                    
+                    字
+                </li>
+                
+                    <li id="/2019/06/05/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" class="leancloud_visitors" data-flag-title="前端代码规范">
+                        <i class="fa fa-eye"></i>
+                        <span class="leancloud-visitors-count"> </span> 次阅读
+                    </li>
+                    
+                        <li>
+                            <i class="fa fa-commenting-o"></i>
+                            <span data-xid="/2019/06/05/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" class="waline-comment-count"> </span> 条评论
+                        </li>
+                    
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                本文最后编辑于 <time datetime="1704157928521"></time> 前，其中的内容可能需要更新。
+            </div>
+            
+                <div class="kratos-post-inner-toc">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99"><span class="toc-number">1.</span> <span class="toc-text">基本原则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E8%A7%84%E8%8C%83"><span class="toc-number">2.</span> <span class="toc-text">通用规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">3.</span> <span class="toc-text">命名规则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML"><span class="toc-number">4.</span> <span class="toc-text">HTML</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5-DOCTYPE"><span class="toc-number">4.0.1.</span> <span class="toc-text">HTML5  DOCTYPE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lang-%E5%B1%9E%E6%80%A7"><span class="toc-number">4.0.2.</span> <span class="toc-text">Lang 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6-%E7%BC%96%E7%A0%81"><span class="toc-number">4.0.3.</span> <span class="toc-text">字符** 编码**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IE%E5%85%BC%E5%AE%B9%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.0.4.</span> <span class="toc-text">IE兼容模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5CSS%EF%BC%8CJS"><span class="toc-number">4.0.5.</span> <span class="toc-text">引入CSS，JS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E9%A1%BA%E5%BA%8F"><span class="toc-number">4.0.6.</span> <span class="toc-text">属性顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boolean"><span class="toc-number">4.0.7.</span> <span class="toc-text">Boolean</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS%E7%94%9F%E6%88%90%E6%A0%87%E7%AD%BE"><span class="toc-number">4.0.8.</span> <span class="toc-text">JS生成标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%8F%E5%B0%91%E6%A0%87%E7%AD%BE%E6%95%B0%E9%87%8F"><span class="toc-number">4.0.9.</span> <span class="toc-text">减少标签数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%94%A8%E9%AB%98%E4%BA%8E%E5%AE%8C%E7%BE%8E"><span class="toc-number">4.0.10.</span> <span class="toc-text">实用高于完美</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS-SCSS"><span class="toc-number">5.</span> <span class="toc-text">CSS SCSS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%A9%E8%BF%9B"><span class="toc-number">5.0.1.</span> <span class="toc-text">缩进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%8F%B7"><span class="toc-number">5.0.2.</span> <span class="toc-text">分号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E6%A0%BC"><span class="toc-number">5.0.3.</span> <span class="toc-text">空格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E8%A1%8C"><span class="toc-number">5.0.4.</span> <span class="toc-text">空行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%A2%E8%A1%8C"><span class="toc-number">5.0.5.</span> <span class="toc-text">换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">5.0.6.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%8F%B7"><span class="toc-number">5.0.7.</span> <span class="toc-text">引号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E5%90%8D"><span class="toc-number">5.0.8.</span> <span class="toc-text">命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E5%A3%B0%E6%98%8E%E9%A1%BA%E5%BA%8F"><span class="toc-number">5.0.9.</span> <span class="toc-text">属性声明顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2"><span class="toc-number">5.0.10.</span> <span class="toc-text">颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E7%AE%80%E5%86%99"><span class="toc-number">5.0.11.</span> <span class="toc-text">属性简写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.0.12.</span> <span class="toc-text">媒体查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SCSS%E7%9B%B8%E5%85%B3"><span class="toc-number">5.0.13.</span> <span class="toc-text">SCSS相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%82%E9%A1%B9"><span class="toc-number">5.0.14.</span> <span class="toc-text">杂项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.1.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript"><span class="toc-number">6.</span> <span class="toc-text">JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%A9%E8%BF%9B-1"><span class="toc-number">6.0.1.</span> <span class="toc-text">缩进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%A1%8C%E9%95%BF%E5%BA%A6"><span class="toc-number">6.0.2.</span> <span class="toc-text">单行长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%8F%B7-1"><span class="toc-number">6.0.3.</span> <span class="toc-text">分号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E6%A0%BC-1"><span class="toc-number">6.0.4.</span> <span class="toc-text">空格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E8%A1%8C-1"><span class="toc-number">6.0.5.</span> <span class="toc-text">空行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%A2-%E8%A1%8C"><span class="toc-number">6.0.6.</span> <span class="toc-text">换** 行**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95-%E8%A1%8C-%E6%B3%A8-%E9%87%8A"><span class="toc-number">6.0.7.</span> <span class="toc-text">单** 行 注 释**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%A1%8C%E6%B3%A8-%E9%87%8A"><span class="toc-number">6.0.8.</span> <span class="toc-text">多行注** 释**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E6%B3%A8-%E9%87%8A"><span class="toc-number">6.0.9.</span> <span class="toc-text">文档注** 释**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%8F%B7-1"><span class="toc-number">6.0.10.</span> <span class="toc-text">引号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98-%E9%87%8F-%E5%91%BD%E5%90%8D"><span class="toc-number">6.0.11.</span> <span class="toc-text">变** 量 **命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98-%E9%87%8F-%E5%A3%B0%E6%98%8E"><span class="toc-number">6.0.12.</span> <span class="toc-text">变** 量 **声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-number">6.0.13.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0-%E7%BB%84-%E3%80%81-%E5%AF%B9-%E8%B1%A1"><span class="toc-number">6.0.14.</span> <span class="toc-text">数** 组 、 对 **象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%AC%E5%8F%B7"><span class="toc-number">6.0.15.</span> <span class="toc-text">括号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Null"><span class="toc-number">6.0.16.</span> <span class="toc-text">Null</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Undefined"><span class="toc-number">6.0.17.</span> <span class="toc-text">Undefined</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jshint"><span class="toc-number">6.0.18.</span> <span class="toc-text">jshint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%82%E9%A1%B9-1"><span class="toc-number">6.0.19.</span> <span class="toc-text">杂项</span></a></li></ol></li></ol></li></ol>
+                </div>
+            
+            <hr />
+            <h1 id="基本原则"><a href="#基本原则" class="headerlink" title="基本原则"></a>基本原则</h1><p>符合web标准（UTF-8, HTML5）， 语义化HTML（HTML5新增语义化标签，减少div和span等无特定语义的标签使用），结构、样式、表现与行为分离（HTML-CSS-JS 代码分离，不同的行为代码高内聚低耦合），兼容性良好（早期版本浏览器兼容，移动端和PC端设备兼容），页面性能方面（减少请求次数，例如使用精灵图和sass语法），代码要求简洁明了有序，尽可能的减小服务器负载，保证最快解析速度。（较小repaint和reflow）</p>
+<h1 id="通用规范"><a href="#通用规范" class="headerlink" title="通用规范"></a>通用规范</h1><ol>
+<li>所有页面按照统一的格式来书写；</li>
+<li>对所有后台请求的返回结果做判断处理（保证在后台请求失败的情况下，浏览器控制台不会报错）；</li>
+<li>所有功能模块写注释，详见注释规范；</li>
+<li>处理逻辑一定要简化，抽取公共框架，减少后期维护成本；</li>
+<li>Tab键使用两个空格代替或者用两个空格缩进（务必）；</li>
+<li>代码行之间尽量不要有空行，重大逻辑转折、语法意义转折，方法分割除外，适当空行增强可读性；</li>
+<li>可以使用W3C HTML/CSS Validator 来验证HTML/CSS代码有效性（非必需）；</li>
+</ol>
+<h1 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h1><p>项目命名：</p>
+<p>全部采用小写方式，以下划线分割</p>
+<p>例：my_project_name</p>
+<p>目录命名</p>
+<p>参照项目命名规则；</p>
+<p>有复数结构时，要采用复数命名法。</p>
+<p>例：scripts，styles， images，data_models</p>
+<p>JS文件命名</p>
+<p>参照项目命名规则；</p>
+<p>例：common.js</p>
+<p>CSS，SCSS文件命名</p>
+<p>参照项目命名规则；</p>
+<p>例：initial.css， retina_sprites.scss</p>
+<p>HTML文件命名</p>
+<p>命名参照项目命名规则；</p>
+<p>例：error_report.html</p>
+<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><p>语法</p>
+<ul>
+<li>缩进使用soft tab；</li>
+<li>嵌套的节点应该缩进；</li>
+<li>在属性上，使用双引号，不要使用单引号；</li>
+<li>属性全名小写，用中划线做分隔符；</li>
+<li>不要在自动闭合标签结尾处使用斜线（HTML5规范，指出他们是可选的）；</li>
+<li>不要忽略可选的关闭标签 例如  和 。</li>
+</ul>
+<h3 id="HTML5-DOCTYPE"><a href="#HTML5-DOCTYPE" class="headerlink" title="HTML5  DOCTYPE"></a><strong>HTML5  DOCTYPE</strong></h3><p>在页面开头使用doctype来启动标准模式，使其在每个浏览器中尽可能一致的展现；</p>
+<p>虽然doctype不缺分大小写，但是按照惯例，doctype大写（<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/15594877/is-there-any-benefits-to-use-uppercase-or-lowercase-letters-with-html5-tagname">关于html属性，大写还是小写</a>）。</p>
+<h3 id="Lang-属性"><a href="#Lang-属性" class="headerlink" title="Lang 属性"></a><strong>Lang 属性</strong></h3><p>根据HTML5 规范</p>
+<p>应在html标签上加上lang属性。这会给语音工具和翻译工具帮助，告诉它们应当怎么去发音和翻译。</p>
+<p>更多关于 lang 属性的说明<a target="_blank" rel="noopener" href="http://www.w3.org/html/wg/drafts/html/master/semantics.html#the-html-element">在这里</a>；</p>
+<p>在sitepoint上可以查到<a target="_blank" rel="noopener" href="http://reference.sitepoint.com/html/lang-codes">语言列表</a>；</p>
+<p>但sitepoint只是给出了语言的大类，例如中文只给出了zh，但是没有区分香港，台湾，大陆。而微软给出了一份更加<a target="_blank" rel="noopener" href="http://msdn.microsoft.com/en-us/library/ms533052(v=vs.85).aspx">详细的语言列表</a>，其中细分了zh-cn, zh-hk, zh-tw。</p>
+<h3 id="字符-编码"><a href="#字符-编码" class="headerlink" title="字符** 编码**"></a><strong>字符</strong>** 编码**</h3><p>通过声明一个明确的字符编码，让浏览器轻松、快速的确定适合网页内容的渲染方式，通常制定为&#39;UTF-8&#39;。</p>
+<h3 id="IE兼容模式"><a href="#IE兼容模式" class="headerlink" title="IE兼容模式"></a><strong>IE兼容模式</strong></h3><p>用 `` 标签可以指定页面应该用什么版本的IE来渲染；</p>
+<p>如果你想要了解更多，请点击<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge-e">这里</a>；</p>
+<p>不同doctype在不同浏览器下会触发不同的渲染模式（<a target="_blank" rel="noopener" href="https://hsivonen.fi/doctype/">这篇文章</a>总结的很到位）。</p>
+<h3 id="引入CSS，JS"><a href="#引入CSS，JS" class="headerlink" title="引入CSS，JS"></a><strong>引入CSS，JS</strong></h3><p>根据HTML5规范, 通常在引入CSS和JS时不需要指明 type，因为 text/css和 text/javascript 分别是他们的默认值。</p>
+<p>HTML5规范链接</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-link-element">使用link</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-style-element">使用style</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/TR/2011/WD-html5-20110525/scripting-1.html#the-script-element">使用script</a></li>
+</ul>
+<h3 id="属性顺序"><a href="#属性顺序" class="headerlink" title="属性顺序"></a><strong>属性顺序</strong></h3><p>属性应该按照特定的顺序出现以保证易读性；</p>
+<ul>
+<li>class</li>
+<li>id</li>
+<li>name</li>
+<li>data-*</li>
+<li>src, for, type, href, value , max-length, max, min, pattern</li>
+<li>placeholder, title, alt</li>
+<li>aria-*, role</li>
+<li>required, readonly, disabled</li>
+</ul>
+<p>class是为高可复用组件设计的，所以应处在第一位；</p>
+<p>id更加具体且应该尽量少使用，所以将它放在第二位。</p>
+<h3 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a><strong>Boolean</strong></h3><p>boolean属性指不需要声明取值的属性，XHTML需要每个属性声明取值，但是HTML5并不需要；</p>
+<p>更多内容可以参考 <a target="_blank" rel="noopener" href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#boolean-attributes">WhatWG section on boolean attributes</a>：</p>
+<p>boolean属性的存在表示取值为true，不存在则表示取值为false。</p>
+<h3 id="JS生成标签"><a href="#JS生成标签" class="headerlink" title="JS生成标签"></a><strong>JS生成标签</strong></h3><p>在JS文件中生成标签让内容变得更难查找，更难编辑，性能更差。应该尽量避免这种情况的出现。</p>
+<h3 id="减少标签数量"><a href="#减少标签数量" class="headerlink" title="减少标签数量"></a><strong>减少标签数量</strong></h3><p>在编写HTML代码时，需要尽量避免多余的父节点；</p>
+<p>很多时候，需要通过迭代和重构来HTML变得更少。</p>
+<h3 id="实用高于完美"><a href="#实用高于完美" class="headerlink" title="实用高于完美"></a><strong>实用高于完美</strong></h3><p>尽量遵循HTML标准和语义，但是不应该以浪费使用性为代价；</p>
+<p>任何时候都需要尽量小的复杂度和尽量少的标签来解决问题。</p>
+<h1 id="CSS-SCSS"><a href="#CSS-SCSS" class="headerlink" title="CSS SCSS"></a>CSS SCSS</h1><h3 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a><strong>缩进</strong></h3><p>使用soft tab</p>
+<h3 id="分号"><a href="#分号" class="headerlink" title="分号"></a><strong>分号</strong></h3><p>每个属性声明末尾都要加分号</p>
+<h3 id="空格"><a href="#空格" class="headerlink" title="空格"></a><strong>空格</strong></h3><ul>
+<li>以下几种情况不需要空格：</li>
+<li>属性名后</li>
+<li>多个规则的分隔符&#39;,&#39;前</li>
+<li>!important  &#39;!&#39;后</li>
+<li>属性值中&#39;(&#39;后和&#39;)&#39;前</li>
+<li>行末不要有多余的空格</li>
+</ul>
+<p>以下几种情况需要空格：</p>
+<ul>
+<li>属性值前</li>
+<li>选择器&#39;&amp;gt;&#39;, &#39;+&#39;, &#39;~&#39;前后</li>
+<li>&#39;{&#39;前</li>
+<li>!important &#39;!&#39;前</li>
+<li>@else 前后</li>
+<li>属性值中的&#39;,&#39;后</li>
+<li>注释&#39;/&#39;后和&#39;/&#39;前</li>
+</ul>
+<p>/* not good */</p>
+<p>.element {</p>
+<pre><code>color :red! important;
+
+background-color: rgba(0,0,0,.5);
+</code></pre>
+<p>}</p>
+<p>/* good */</p>
+<p>.element {</p>
+<pre><code>color: red !important;
+
+background-color: rgba(0, 0, 0, .5);
+</code></pre>
+<p>}</p>
+<p>/* not good */</p>
+<p>.element ,</p>
+<p>.dialog{</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<p>/* good */</p>
+<p>.element,</p>
+<p>.dialog {</p>
+<p>}</p>
+<p>/* not good */</p>
+<p>.element&amp;gt;.dialog{</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<p>/* good */</p>
+<p>.element &amp;gt; .dialog{</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<p>/* not good */</p>
+<p>.element{</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<p>/* good */</p>
+<p>.element {</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<p>/* not good */</p>
+<p>@if{</p>
+<pre><code>...
+</code></pre>
+<p>}@else{</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<p>/* good */</p>
+<p>@if {</p>
+<pre><code>...
+</code></pre>
+<p>} @else {</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<h3 id="空行"><a href="#空行" class="headerlink" title="空行"></a><strong>空行</strong></h3><p>以下几种情况需要空行：</p>
+<ul>
+<li>文件最后保留一个空行</li>
+<li>&#39;}&#39;后最好跟一个空行，包括scss中嵌套的规则</li>
+<li>属性之间需要适当的空行，具体见<a target="_blank" rel="noopener" href="http://alloyteam.github.io/CodeGuide/#css-declaration-order">属性声明顺序</a></li>
+</ul>
+<h3 id="换行"><a href="#换行" class="headerlink" title="换行"></a><strong>换行</strong></h3><p>以下几种情况不需要换行：</p>
+<ul>
+<li>&#39;{&#39;前</li>
+</ul>
+<p>以下几种情况需要换行</p>
+<p>&#39;{&#39;后和&#39;}&#39;前</p>
+<p>每个属性独占一行</p>
+<p>多个规则的分隔符&#39;,&#39;后</p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a><strong>注释</strong></h3><p>注释统一用&#39;/ /&#39;（scss中也不要用&#39;//&#39;），具体参照右边的写法；</p>
+<p>缩进与下一行代码保持一致；</p>
+<p>可位于一个代码行的末尾，与代码间隔一个空格。</p>
+<h3 id="引号"><a href="#引号" class="headerlink" title="引号"></a><strong>引号</strong></h3><p>最外层统一使用双引号；</p>
+<p>url的内容要用引号；</p>
+<p>属性选择器中的属性值需要引号。</p>
+<h3 id="命名"><a href="#命名" class="headerlink" title="命名"></a><strong>命名</strong></h3><p>类名使用小写字母，以中划线分隔</p>
+<p>id采用驼峰式命名</p>
+<p>scss中的变量、函数、混合、placeholder采用驼峰式命名</p>
+<h3 id="属性声明顺序"><a href="#属性声明顺序" class="headerlink" title="属性声明顺序"></a><strong>属性声明顺序</strong></h3><p>相关的属性声明按右边的顺序做分组处理，组之间需要有一个空行。</p>
+<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a><strong>颜色</strong></h3><p>颜色16进制用小写字母；</p>
+<p>颜色16进制尽量用简写。</p>
+<pre><code>
+/\* not good \*/
+
+/\* not good \*/
+
+.element &#123;
+
+    color: #ABCDEF;
+
+    background-color: #001122;
+
+&#125;
+
+/\* good \*/
+
+.element &#123;
+
+    color: #abcdef;
+
+    background-color: #012;
+
+&#125;
+</code></pre>
+
+
+<h3 id="属性简写"><a href="#属性简写" class="headerlink" title="属性简写"></a><strong>属性简写</strong></h3><p>属性简写需要你非常清楚属性值的正确顺序，而且在大多数情况下并不需要设置属性简写中包含的所有值，所以建议尽量分开声明会更加清晰；</p>
+<p>margin 和 padding 相反，需要使用简写；</p>
+<p>常见的属性简写包括：</p>
+<ul>
+<li>font</li>
+<li>background</li>
+<li>transition</li>
+<li>animation<pre><code>
+/\* not good \*/</li>
+</ul>
+<p>.element &#123;</p>
+<pre><code>transition: opacity 1s linear 2s;
+</code></pre>
+<p>}</p>
+<p>/* good */</p>
+<p>.element {</p>
+<pre><code>transition-delay: 2s;
+
+transition-timing-function: linear;
+
+transition-duration: 1s;
+
+transition-property: opacity;
+</code></pre>
+<p>}<br></code></pre></p>
+<h3 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a><strong>媒体查询</strong></h3><p>尽量将媒体查询的规则靠近与他们相关的规则，不要将他们一起放到一个独立的样式文件中，或者丢在文档的最底部，这样做只会让大家以后更容易忘记他们。</p>
+<p>.element {</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<p>.element-avatar{</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<p>@media (min-width: 480px) {</p>
+<pre><code>.element &#123;
+
+    ...
+
+&#125;
+
+.element-avatar &#123;
+
+    ...
+
+&#125;
+</code></pre>
+<p>}</p>
+<h3 id="SCSS相关"><a href="#SCSS相关" class="headerlink" title="SCSS相关"></a><strong>SCSS相关</strong></h3><p>提交的代码中不要有 @debug；</p>
+<p>声明顺序：</p>
+<ul>
+<li>@extend</li>
+<li>不包含 @content 的 @include</li>
+<li>包含 @content 的 @include</li>
+<li>自身属性</li>
+<li>嵌套规则</li>
+</ul>
+<p>@import 引入的文件不需要开头的&#39;_&#39;和结尾的&#39;.scss&#39;；</p>
+<p>嵌套最多不能超过5层；</p>
+<p>@extend 中使用placeholder选择器；</p>
+<p>去掉不必要的父级引用符号&#39;&amp;&#39;。</p>
+<p>/* not good */</p>
+<p>@import ‘_dialog.scss’;</p>
+<p>/* good */</p>
+<p>@import ‘dialog’;</p>
+<p>/* not good */</p>
+<p>.fatal {</p>
+<pre><code>@extend .error;
+</code></pre>
+<p>}</p>
+<p>/* good */</p>
+<p>.fatal {</p>
+<pre><code>@extend %error;
+</code></pre>
+<p>}</p>
+<p>/* not good */</p>
+<p>.element {</p>
+<pre><code>&amp;amp; \&amp;gt; .dialog &#123;
+
+    ...
+
+&#125;
+</code></pre>
+<p>}</p>
+<p>/* good */</p>
+<p>.element {</p>
+<pre><code>\&amp;gt; .dialog &#123;
+
+    ...
+
+&#125;
+</code></pre>
+<p>}</p>
+<h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a><strong>杂项</strong></h3><p>不允许有空的规则；</p>
+<p>元素选择器用小写字母；</p>
+<p>去掉小数点前面的0；</p>
+<p>去掉数字中不必要的小数点和末尾的0；</p>
+<p>属性值&#39;0&#39;后面不要加单位；</p>
+<p>同个属性不同前缀的写法需要在垂直方向保持对齐，具体参照右边的写法；</p>
+<p>无前缀的标准属性应该写在有前缀的属性后面；</p>
+<p>不要在同个规则里出现重复的属性，如果重复的属性是连续的则没关系；</p>
+<p>不要在一个文件里出现两个相同的规则；</p>
+<p>用 border: 0; 代替 border: none;；</p>
+<p>选择器不要超过4层（在scss中如果超过4层应该考虑用嵌套的方式来写）；</p>
+<p>发布的代码中不要有 @import；</p>
+<p>尽量少用&#39;*&#39;选择器。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h3 id="缩进-1"><a href="#缩进-1" class="headerlink" title="缩进"></a><strong>缩进</strong></h3><p>使用soft tab</p>
+<p>var x = 1,</p>
+<pre><code>y = 1;
+</code></pre>
+<p>if (x &amp;lt; y) {</p>
+<pre><code>x += 10;
+</code></pre>
+<p>} else {</p>
+<pre><code>x += 1;
+</code></pre>
+<p>}</p>
+<h3 id="单行长度"><a href="#单行长度" class="headerlink" title="单行长度"></a><strong>单行长度</strong></h3><p>不要超过80，但如果编辑器开启word wrap可以不考虑单行长度。</p>
+<h3 id="分号-1"><a href="#分号-1" class="headerlink" title="分号"></a><strong>分号</strong></h3><p>以下几种情况后需加分号：</p>
+<ul>
+<li>变量声明</li>
+<li>表达式</li>
+<li>return</li>
+<li>throw</li>
+<li>break</li>
+<li>continue</li>
+<li>do-while</li>
+</ul>
+<p>/* var declaration */</p>
+<p>var x = 1;</p>
+<p>/* expression statement */</p>
+<p>x++;</p>
+<p>/* do-while */</p>
+<p>do {</p>
+<pre><code>x++;
+</code></pre>
+<p>} while (x &amp;lt; 10);</p>
+<h3 id="空格-1"><a href="#空格-1" class="headerlink" title="空格"></a><strong>空格</strong></h3><p>以下几种情况不需要空格：</p>
+<ul>
+<li>对象的属性名后</li>
+<li>前缀一元运算符后</li>
+<li>后缀一元运算符前</li>
+<li>函数调用括号前</li>
+<li>无论是函数声明还是函数表达式，&#39;(&#39;前不要空格</li>
+<li>数组的&#39;[&#39;后和&#39;]&#39;前</li>
+<li>对象的&#39;{&#39;后和&#39;}&#39;前</li>
+<li>运算符&#39;(&#39;后和&#39;)&#39;前</li>
+</ul>
+<p>以下几种情况需要空格：</p>
+<ul>
+<li>二元运算符前后</li>
+<li>三元运算符&#39;?:&#39;前后</li>
+<li>代码块&#39;{&#39;前</li>
+<li>下列关键字前：else, while, catch, finally</li>
+<li>下列关键字后：if, else, for, while, do, switch, case, try,catch, finally, with, return, typeof</li>
+<li>单行注释&#39;//&#39;后（若单行注释和代码同行，则&#39;//&#39;前也需要），多行注释&#39;*&#39;后</li>
+<li>对象的属性值前</li>
+<li>for循环，分号后留有一个空格，前置条件如果有多个，逗号后留一个空格</li>
+<li>无论是函数声明还是函数表达式，&#39;{&#39;前一定要有空格</li>
+<li>函数的参数之间</li>
+</ul>
+<p>// not good</p>
+<p>var a = {</p>
+<pre><code>b :1
+</code></pre>
+<p>};</p>
+<p>// good</p>
+<p>var a = {</p>
+<pre><code>b: 1
+</code></pre>
+<p>};</p>
+<p>// not good</p>
+<p>++ x;</p>
+<p>y ++;</p>
+<p>z = x?1:2;</p>
+<p>// good</p>
+<p>++x;</p>
+<p>y++;</p>
+<p>z = x ? 1 : 2;</p>
+<p>// not good</p>
+<p>var a = [1, 2];</p>
+<p>// good</p>
+<p>var a = [1, 2];</p>
+<p>// not good</p>
+<p>var a = ( 1+2 )*3;</p>
+<p>// good</p>
+<p>var a = (1 + 2) * 3;</p>
+<p>// no space before &#39;(&#39;, one space before &#39;{&#39;, one space between function parameters</p>
+<p>var doSomething = function(a, b, c) {</p>
+<pre><code>// do something
+</code></pre>
+<p>};</p>
+<p>// no space before &#39;(&#39;</p>
+<p>doSomething(item);</p>
+<p>// not good</p>
+<p>for(i=0;i&amp;lt;6;i++){</p>
+<pre><code>x++;
+</code></pre>
+<p>}</p>
+<p>// good</p>
+<p>for (i = 0; i &amp;lt; 6; i++) {</p>
+<pre><code>x++;
+</code></pre>
+<p>}</p>
+<h3 id="空行-1"><a href="#空行-1" class="headerlink" title="空行"></a><strong>空行</strong></h3><p>以下几种情况需要空行：</p>
+<ul>
+<li>变量声明后（当变量声明在代码块的最后一行时，则无需空行）</li>
+<li>注释前（当注释在代码块的第一行时，则无需空行）</li>
+<li>代码块后（在函数调用、数组、对象中则无需空行）</li>
+<li>文件最后保留一个空行</li>
+</ul>
+<p>// need blank line after variable declaration</p>
+<p>var x = 1;</p>
+<p>// not need blank line when variable declaration is last expression in the current block</p>
+<p>if (x &amp;gt;= 1) {</p>
+<pre><code>var y = x + 1;
+</code></pre>
+<p>}</p>
+<p>var a = 2;</p>
+<p>// need blank line before line comment</p>
+<p>a++;</p>
+<p>function b() {</p>
+<pre><code>// not need blank line when comment is first line of block
+
+return a;
+</code></pre>
+<p>}</p>
+<p>// need blank line after blocks</p>
+<p>for (var i = 0; i &amp;lt; 2; i++) {</p>
+<pre><code>if (true) &#123;
+
+    return false;
+
+&#125;
+
+continue;
+</code></pre>
+<p>}</p>
+<p>var obj = {</p>
+<pre><code>foo: function() &#123;
+
+    return 1;
+
+&#125;,
+
+bar: function() &#123;
+
+    return 2;
+
+&#125;
+</code></pre>
+<p>};</p>
+<p>// not need blank line when in argument list, array, object</p>
+<p>func(</p>
+<pre><code>2,
+
+function() &#123;
+
+    a++;
+
+&#125;,
+
+3
+</code></pre>
+<p>);</p>
+<p>var foo = [</p>
+<pre><code>2,
+
+function() &#123;
+
+    a++;
+
+&#125;,
+
+3
+</code></pre>
+<p>];</p>
+<p>var foo = {</p>
+<pre><code>a: 2,
+
+b: function() &#123;
+
+    a++;
+
+&#125;,
+
+c: 3
+</code></pre>
+<p>};</p>
+<h3 id="换-行"><a href="#换-行" class="headerlink" title="换** 行**"></a><strong>换</strong>** 行**</h3><p>换行的地方，行末必须有&#39;,&#39;或者运算符；</p>
+<p>以下几种情况不需要换行：</p>
+<ul>
+<li>下列关键字后：else, catch, finally</li>
+<li>代码块&#39;{&#39;前</li>
+</ul>
+<p>以下几种情况需要换行：</p>
+<ul>
+<li>代码块&#39;{&#39;后和&#39;}&#39;前</li>
+<li>变量赋值后</li>
+</ul>
+<p>// not good</p>
+<p>var a = {</p>
+<pre><code>b: 1
+
+, c: 2
+</code></pre>
+<p>};</p>
+<p>x = y</p>
+<pre><code>? 1 : 2;
+</code></pre>
+<p>// good</p>
+<p>var a = {</p>
+<pre><code>b: 1,
+
+c: 2
+</code></pre>
+<p>};</p>
+<p>x = y ? 1 : 2;</p>
+<p>x = y ?</p>
+<pre><code>1 : 2;
+</code></pre>
+<p>// no need line break with &#39;else&#39;, &#39;catch&#39;, &#39;finally&#39;</p>
+<p>if (condition) {</p>
+<pre><code>...
+</code></pre>
+<p>} else {</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<p>try {</p>
+<pre><code>...
+</code></pre>
+<p>} catch (e) {</p>
+<pre><code>...
+</code></pre>
+<p>} finally {</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<p>// not good</p>
+<p>function test()</p>
+<p>{</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<p>// good</p>
+<p>function test() {</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<p>// not good</p>
+<p>var a, foo = 7, b,</p>
+<pre><code>c, bar = 8;
+</code></pre>
+<p>// good</p>
+<p>var a,</p>
+<pre><code>foo = 7,
+
+b, c, bar = 8;
+</code></pre>
+<h3 id="单-行-注-释"><a href="#单-行-注-释" class="headerlink" title="单** 行 注 释**"></a><strong>单</strong>** 行 <strong><strong>注</strong></strong> 释**</h3><p>双斜线后，必须跟一个空格；</p>
+<p>缩进与下一行代码保持一致；</p>
+<p>可位于一个代码行的末尾，与代码间隔一个空格。</p>
+<p>if (condition) {</p>
+<pre><code>// if you made it here, then all security checks passed
+
+allowed();
+</code></pre>
+<p>}</p>
+<p>var zhangsan = &#39;zhangsan&#39;; // one space after code</p>
+<h3 id="多行注-释"><a href="#多行注-释" class="headerlink" title="多行注** 释**"></a><strong>多行注</strong>** 释**</h3><p>最少三行, &#39;*&#39;后跟一个空格，具体参照右边的写法；</p>
+<p>建议在以下情况下使用：</p>
+<ul>
+<li>难于理解的代码段</li>
+<li>可能存在错误的代码段</li>
+<li>浏览器特殊的HACK代码</li>
+<li>业务逻辑强相关的代码</li>
+</ul>
+<p>/*</p>
+<p> * one space after &#39;*&#39;</p>
+<p> */</p>
+<p>var x = 1;</p>
+<h3 id="文档注-释"><a href="#文档注-释" class="headerlink" title="文档注** 释**"></a><strong>文档注</strong>** 释**</h3><p>各类标签@param, @method等请参考usejsdoc和JSDoc Guide；</p>
+<p>建议在以下情况下使用：</p>
+<ul>
+<li>所有常量</li>
+<li>所有函数</li>
+<li>所有类</li>
+</ul>
+<p>/**</p>
+<p> * @func</p>
+<p> * @desc 一个带参数的函数</p>
+<p> * @param {string} a - 参数a</p>
+<p> * @param {number} b=1 - 参数b默认值为1</p>
+<p> * @param {string} c=1 - 参数c有两种支持的取值&amp;lt;/br&amp;gt;1—表示x&amp;lt;/br&amp;gt;2—表示xx</p>
+<p> * @param {object} d - 参数d为一个对象</p>
+<p> * @param {string} d.e - 参数d的e属性</p>
+<p> * @param {string} d.f - 参数d的f属性</p>
+<p> * @param {object[]} g - 参数g为一个对象数组</p>
+<p> * @param {string} g.h - 参数g数组中一项的h属性</p>
+<p> * @param {string} g.i - 参数g数组中一项的i属性</p>
+<p> * @param {string} [j] - 参数j是一个可选参数</p>
+<p> */</p>
+<p>function foo(a, b, c, d, g, j) {</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<h3 id="引号-1"><a href="#引号-1" class="headerlink" title="引号"></a><strong>引号</strong></h3><p>最外层统一使用单引号。</p>
+<p>// not good</p>
+<p>var x = ‘test’;</p>
+<p>// good</p>
+<p>var y = &#39;foo&#39;,</p>
+<pre><code>z = &amp;#39;\&amp;lt;div id=&#39;test&#39;\&amp;gt;\&amp;lt;/div\&amp;gt;&amp;#39;;
+</code></pre>
+<h3 id="变-量-命名"><a href="#变-量-命名" class="headerlink" title="变** 量 **命名"></a><strong>变</strong>** 量 **<strong>命名</strong></h3><ul>
+<li>标准变量采用驼峰式命名（除了对象的属性外，主要是考虑到cgi返回的数据）</li>
+<li>&#39;ID&#39;在变量名中全大写</li>
+<li>&#39;URL&#39;在变量名中全大写</li>
+<li>&#39;Android&#39;在变量名中大写第一个字母</li>
+<li>&#39;iOS&#39;在变量名中小写第一个，大写后两个字母</li>
+<li>常量全大写，用下划线连接</li>
+<li>构造函数，大写第一个字母</li>
+<li>jquery对象必须以&#39;$&#39;开头命名</li>
+</ul>
+<p>var thisIsMyName;</p>
+<p>var goodID;</p>
+<p>var reportURL;</p>
+<p>var AndroidVersion;</p>
+<p>var iOSVersion;</p>
+<p>var MAX_COUNT = 10;</p>
+<p>function Person(name) {</p>
+<pre><code>this.name = name;
+</code></pre>
+<p>}</p>
+<p>// not good</p>
+<p>var body = $(&#39;body&#39;);</p>
+<p>// good</p>
+<p>var $body = $(&#39;body&#39;);</p>
+<h3 id="变-量-声明"><a href="#变-量-声明" class="headerlink" title="变** 量 **声明"></a><strong>变</strong>** 量 **<strong>声明</strong></h3><p>一个函数作用域中所有的变量声明尽量提到函数首部，用一个var声明，不允许出现两个连续的var声明。</p>
+<p>function doSomethingWithItems(items) {</p>
+<pre><code>// use one var
+
+var value = 10,
+
+    result = value + 10,
+
+    i,
+
+    len;
+
+for (i = 0, len = items.length; i \&amp;lt; len; i++) &#123;
+
+    result += 10;
+
+&#125;
+</code></pre>
+<p>}</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a><strong>函数</strong></h3><p>无论是函数声明还是函数表达式，&#39;(&#39;前不要空格，但&#39;{&#39;前一定要有空格；</p>
+<p>函数调用括号前不需要空格；</p>
+<p>立即执行函数外必须包一层括号；</p>
+<p>不要给inline function命名；</p>
+<p>参数之间用&#39;, &#39;分隔，注意逗号后有一个空格。</p>
+<p>// no space before &#39;(&#39;, but one space before&#39;{&#39;</p>
+<p>var doSomething = function(item) {</p>
+<pre><code>// do something
+</code></pre>
+<p>};</p>
+<p>function doSomething(item) {</p>
+<pre><code>// do something
+</code></pre>
+<p>}</p>
+<p>// not good</p>
+<p>doSomething (item);</p>
+<p>// good</p>
+<p>doSomething(item);</p>
+<p>// requires parentheses around immediately invoked function expressions</p>
+<p>(function() {</p>
+<pre><code>return 1;
+</code></pre>
+<p>})();</p>
+<p>// not good</p>
+<p>[1, 2].forEach(function x() {</p>
+<pre><code>...
+</code></pre>
+<p>});</p>
+<p>// good</p>
+<p>[1, 2].forEach(function() {</p>
+<pre><code>...
+</code></pre>
+<p>});</p>
+<p>// not good</p>
+<p>var a = [1, 2, function a() {</p>
+<pre><code>...
+</code></pre>
+<p>}];</p>
+<p>// good</p>
+<p>var a = [1, 2, function() {</p>
+<pre><code>...
+</code></pre>
+<p>}];</p>
+<p>// use &#39;, &#39; between function parameters</p>
+<p>var doSomething = function(a, b, c) {</p>
+<pre><code>// do something
+</code></pre>
+<p>};</p>
+<h3 id="数-组-、-对-象"><a href="#数-组-、-对-象" class="headerlink" title="数** 组 、 对 **象"></a><strong>数</strong>** 组 <strong><strong>、</strong></strong> 对 **<strong>象</strong></h3><p>对象属性名不需要加引号；</p>
+<p>对象以缩进的形式书写，不要写在一行；</p>
+<p>数组、对象最后不要有逗号。</p>
+<p>// not good</p>
+<p>var a = {</p>
+<pre><code>&amp;#39;b&amp;#39;: 1
+</code></pre>
+<p>};</p>
+<p>var a = {b: 1};</p>
+<p>var a = {</p>
+<pre><code>b: 1,
+
+c: 2,
+</code></pre>
+<p>};</p>
+<p>// good</p>
+<p>var a = {</p>
+<pre><code>b: 1,
+
+c: 2
+</code></pre>
+<p>};</p>
+<h3 id="括号"><a href="#括号" class="headerlink" title="括号"></a><strong>括号</strong></h3><p>下列关键字后必须有大括号（即使代码块的内容只有一行）：if, else,for, while, do, switch, try, catch, finally, with。</p>
+<p>// not good</p>
+<p>if (condition)</p>
+<pre><code>doSomething();
+</code></pre>
+<p>// good</p>
+<p>if (condition) {</p>
+<pre><code>doSomething();
+</code></pre>
+<p>}</p>
+<h3 id="Null"><a href="#Null" class="headerlink" title="Null"></a><strong>Null</strong></h3><p>适用场景：</p>
+<ul>
+<li>初始化一个将来可能被赋值为对象的变量</li>
+<li>与已经初始化的变量做比较</li>
+<li>作为一个参数为对象的函数的调用传参</li>
+<li>作为一个返回对象的函数的返回值</li>
+</ul>
+<p>不适用场景：</p>
+<ul>
+<li>不要用null来判断函数调用时有无传参</li>
+<li>不要与未初始化的变量做比较</li>
+</ul>
+<p>// not good</p>
+<p>function test(a, b) {</p>
+<pre><code>if (b === null) &#123;
+
+    // not mean b is not supply
+
+    ...
+
+&#125;
+</code></pre>
+<p>}</p>
+<p>var a;</p>
+<p>if (a === null) {</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<p>// good</p>
+<p>var a = null;</p>
+<p>if (a === null) {</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<h3 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a><strong>Undefined</strong></h3><p>永远不要直接使用undefined进行变量判断；</p>
+<p>使用typeof和字符串&#39;undefined&#39;对变量进行判断。</p>
+<p>// not good</p>
+<p>if (person === undefined) {</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<p>// good</p>
+<p>if (typeof person === &#39;undefined&#39;) {</p>
+<pre><code>...
+</code></pre>
+<p>}</p>
+<h3 id="jshint"><a href="#jshint" class="headerlink" title="jshint"></a><strong>jshint</strong></h3><p>用&#39;===&#39;, &#39;!==&#39;代替&#39;==&#39;, &#39;!=&#39;；</p>
+<p>for-in里一定要有hasOwnProperty的判断；</p>
+<p>不要在内置对象的原型上添加方法，如Array, Date；</p>
+<p>不要在内层作用域的代码里声明了变量，之后却访问到了外层作用域的同名变量；</p>
+<p>变量不要先使用后声明；</p>
+<p>不要在一句代码中单单使用构造函数，记得将其赋值给某个变量；</p>
+<p>不要在同个作用域下声明同名变量；</p>
+<p>不要在一些不需要的地方加括号，例：delete(a.b)；</p>
+<p>不要使用未声明的变量（全局变量需要加到.jshintrc文件的globals属性里面）；</p>
+<p>不要声明了变量却不使用；</p>
+<p>不要在应该做比较的地方做赋值；</p>
+<p>debugger不要出现在提交的代码里；</p>
+<p>数组中不要存在空元素；</p>
+<p>不要在循环内部声明函数；</p>
+<p>不要像这样使用构造函数，例：new function () { … }, new Object；</p>
+<p>// not good</p>
+<p>if (a == 1) {</p>
+<pre><code>a++;
+</code></pre>
+<p>}</p>
+<p>// good</p>
+<p>if (a === 1) {</p>
+<pre><code>a++;
+</code></pre>
+<p>}</p>
+<p>// good</p>
+<p>for (key in obj) {</p>
+<pre><code>if (obj.hasOwnProperty(key)) &#123;
+
+    // be sure that obj[key] belongs to the object and was not inherited
+
+    console.log(obj[key]);
+
+&#125;
+</code></pre>
+<p>}</p>
+<p>// not good</p>
+<p>Array.prototype.count = function(value) {</p>
+<pre><code>return 4;
+</code></pre>
+<p>};</p>
+<p>// not good</p>
+<p>var x = 1;</p>
+<p>function test() {</p>
+<pre><code>if (true) &#123;
+
+    var x = 0;
+
+&#125;
+
+x += 1;
+</code></pre>
+<p>}</p>
+<p>// not good</p>
+<p>function test() {</p>
+<pre><code>console.log(x);
+
+var x = 1;
+</code></pre>
+<p>}</p>
+<p>// not good</p>
+<p>new Person();</p>
+<p>// good</p>
+<p>var person = new Person();</p>
+<p>// not good</p>
+<p>delete(obj.attr);</p>
+<p>// good</p>
+<p>delete obj.attr;</p>
+<p>// not good</p>
+<p>if (a = 10) {</p>
+<pre><code>a++;
+</code></pre>
+<p>}</p>
+<p>// not good</p>
+<p>var a = [1, , , 2, 3];</p>
+<p>// not good</p>
+<p>var nums = [];</p>
+<p>for (var i = 0; i &amp;lt; 10; i++) {</p>
+<pre><code>(function(i) &#123;
+
+    nums[i] = function(j) &#123;
+
+        return i + j;
+
+    &#125;;
+
+&#125;(i));
+</code></pre>
+<p>}</p>
+<p>// not good</p>
+<p>var singleton = new function() {</p>
+<pre><code>var privateVar;
+
+this.publicMethod = function() &#123;
+
+    privateVar = 1;
+
+&#125;;
+
+this.publicMethod2 = function() &#123;
+
+    privateVar = 2;
+
+&#125;;
+</code></pre>
+<p>};</p>
+<h3 id="杂项-1"><a href="#杂项-1" class="headerlink" title="杂项"></a><strong>杂项</strong></h3><p>不要混用tab和space；</p>
+<p>不要在一处使用多个tab或space；</p>
+<p>换行符统一用&#39;LF&#39;；</p>
+<p>对上下文this的引用只能使用&#39;_this&#39;, &#39;that&#39;, &#39;self&#39;其中一个来命名；</p>
+<p>行尾不要有空白字符；</p>
+<p>switch的falling through和no default的情况一定要有注释特别说明；</p>
+<p>不允许有空的代码块。</p>
+<p>// not good<br>var a   = 1;<br>function Person() {<br>    // not good<br>    var me = this;<br>    // good<br>    var _this = this;<br>    // good<br>    var that = this;<br>    // good<br>    var self = this;<br>}<br>// good<br>switch (condition) {<br>    case 1:<br>    case 2:<br>        …<br>        break;<br>    case 3:<br>        …<br>    // why fall through<br>    case 4<br>        …<br>        break;<br>    // why no default<br>}<br>// not good with empty block<br>if (condition) {</p>
+<p>}</p>
+
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5>本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2019/06/05/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2019/06/05/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/";
+            const title         = "「前端代码规范」";
+            const excerpt       = `基本原则符合web标准（UTF-8, HTML5）， 语义化HTML（HTML5新增语义化标签，减少div和span等无特定语义的标签使用），结构、样式、表现与行为分离（HTML-CSS-JS 代码分离，不同的行为代码高内聚低耦合），...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/CSS/" rel="tag">CSS</a>, <a class="tag-none-link" href="/tags/HTML/" rel="tag">HTML</a>, <a class="tag-none-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+                </div>
+                <div class="pull-date">
+                <span>最后编辑：2024-01-02</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" REST与RESTful的故事" href="/2019/03/20/restfulapi/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" SEO优化（一）" href="/2019/06/13/seo/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+        <div id="w-comments" class="post-comments"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            new Waline(Object.assign({
+                el: '#w-comments',
+                path: '/2019/06/05/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/'
+            }, JSON.parse('{"serverURL":"https://myblog-api-hazel.vercel.app","visitor":true}')));
+        }
+        if (typeof Waline == 'undefined') {
+            const src = 'https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
+
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="https://greenhaha.oss-cn-beijing.aliyuncs.com/frontend/assets/header/header.png" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">爱折腾，啥都想看看的开发者</p>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar"></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99"><span class="toc-text">基本原则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E8%A7%84%E8%8C%83"><span class="toc-text">通用规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-text">命名规则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML"><span class="toc-text">HTML</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5-DOCTYPE"><span class="toc-text">HTML5  DOCTYPE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lang-%E5%B1%9E%E6%80%A7"><span class="toc-text">Lang 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6-%E7%BC%96%E7%A0%81"><span class="toc-text">字符** 编码**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IE%E5%85%BC%E5%AE%B9%E6%A8%A1%E5%BC%8F"><span class="toc-text">IE兼容模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5CSS%EF%BC%8CJS"><span class="toc-text">引入CSS，JS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E9%A1%BA%E5%BA%8F"><span class="toc-text">属性顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boolean"><span class="toc-text">Boolean</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS%E7%94%9F%E6%88%90%E6%A0%87%E7%AD%BE"><span class="toc-text">JS生成标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%8F%E5%B0%91%E6%A0%87%E7%AD%BE%E6%95%B0%E9%87%8F"><span class="toc-text">减少标签数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%94%A8%E9%AB%98%E4%BA%8E%E5%AE%8C%E7%BE%8E"><span class="toc-text">实用高于完美</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS-SCSS"><span class="toc-text">CSS SCSS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%A9%E8%BF%9B"><span class="toc-text">缩进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%8F%B7"><span class="toc-text">分号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E6%A0%BC"><span class="toc-text">空格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E8%A1%8C"><span class="toc-text">空行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%A2%E8%A1%8C"><span class="toc-text">换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-text">注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%8F%B7"><span class="toc-text">引号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E5%90%8D"><span class="toc-text">命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E5%A3%B0%E6%98%8E%E9%A1%BA%E5%BA%8F"><span class="toc-text">属性声明顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2"><span class="toc-text">颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E7%AE%80%E5%86%99"><span class="toc-text">属性简写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="toc-text">媒体查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SCSS%E7%9B%B8%E5%85%B3"><span class="toc-text">SCSS相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%82%E9%A1%B9"><span class="toc-text">杂项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript"><span class="toc-text">JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%A9%E8%BF%9B-1"><span class="toc-text">缩进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%A1%8C%E9%95%BF%E5%BA%A6"><span class="toc-text">单行长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%8F%B7-1"><span class="toc-text">分号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E6%A0%BC-1"><span class="toc-text">空格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E8%A1%8C-1"><span class="toc-text">空行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%A2-%E8%A1%8C"><span class="toc-text">换** 行**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95-%E8%A1%8C-%E6%B3%A8-%E9%87%8A"><span class="toc-text">单** 行 注 释**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%A1%8C%E6%B3%A8-%E9%87%8A"><span class="toc-text">多行注** 释**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E6%B3%A8-%E9%87%8A"><span class="toc-text">文档注** 释**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%8F%B7-1"><span class="toc-text">引号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98-%E9%87%8F-%E5%91%BD%E5%90%8D"><span class="toc-text">变** 量 **命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98-%E9%87%8F-%E5%A3%B0%E6%98%8E"><span class="toc-text">变** 量 **声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-text">函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0-%E7%BB%84-%E3%80%81-%E5%AF%B9-%E8%B1%A1"><span class="toc-text">数** 组 、 对 **象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%AC%E5%8F%B7"><span class="toc-text">括号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Null"><span class="toc-text">Null</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Undefined"><span class="toc-text">Undefined</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jshint"><span class="toc-text">jshint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%82%E9%A1%B9-1"><span class="toc-text">杂项</span></a></li></ol></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%A8%E6%96%B0%E4%BD%93%E9%AA%8C/">全新体验</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%A4%A7%E5%85%A8/">工具大全</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%A1%A3%E6%95%99%E7%A8%8B/">文档教程</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%89%96%E6%9E%90/">知识剖析</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/">规范总结</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E5%88%92%E6%80%BB%E7%BB%93/">计划总结</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/2023/" style="font-size: 0.6em;">2023</a> <a href="/tags/API/" style="font-size: 0.6em;">API</a> <a href="/tags/CSS/" style="font-size: 0.64em;">CSS</a> <a href="/tags/ELM/" style="font-size: 0.64em;">ELM</a> <a href="/tags/HTML/" style="font-size: 0.68em;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 0.8em;">JavaScript</a> <a href="/tags/JavaScript%E6%8A%80%E6%9C%AF/" style="font-size: 0.6em;">JavaScript技术</a> <a href="/tags/Node/" style="font-size: 0.76em;">Node</a> <a href="/tags/React/" style="font-size: 0.68em;">React</a> <a href="/tags/ReactNative/" style="font-size: 0.72em;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 0.6em;">TypeScript</a> <a href="/tags/Vue/" style="font-size: 0.6em;">Vue</a> <a href="/tags/chromeAPI/" style="font-size: 0.6em;">chromeAPI</a> <a href="/tags/express/" style="font-size: 0.64em;">express</a> <a href="/tags/express-session/" style="font-size: 0.6em;">express-session</a> <a href="/tags/git/" style="font-size: 0.6em;">git</a> <a href="/tags/google/" style="font-size: 0.6em;">google</a> <a href="/tags/hexo/" style="font-size: 0.6em;">hexo</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/05/%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-DASH/"><i class="fa  fa-book"></i> 流媒体协议-DASH</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/01/2023%E6%80%BB%E7%BB%93/"><i class="fa  fa-book"></i> 2023 总结</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2022/04/23/%E7%9B%B4%E6%92%AD%E5%8E%9F%E7%90%86%E4%B8%8E/"><i class="fa  fa-book"></i> 直播原理</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2022/03/16/express-session/"><i class="fa  fa-book"></i> express-session 原理</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2022/03/14/interface%E4%B8%8Etype/"><i class="fa  fa-book"></i> Interface 与 Type的区别</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:a15114101085@aliyun.com"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/greenhaha"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2024 彼方のE栈 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 境界の彼方.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">辽ICP备19004490号-2</a></li>
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+<script async src="/js/candy.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>
