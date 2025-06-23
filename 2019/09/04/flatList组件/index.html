@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>flatList组件 | 彼方のE栈</title>
+  
+  <meta name="author" content="境界の彼方" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="JavaScript, ReactNative" />
+  
+  <meta name="description" content="FlatList 组件高性能的简单列表组件， 支持下面这些常用的功能：  完全跨平台 支持水平布局模式 行组件显示或者隐藏时可配置回调事件 支持单独的头部组件 支持单独的尾部组件 支持自定义行间分割线 支持下拉刷新 支持上拉加载 支持跳转到指定行（ScrollToIndex） 支持多列布局  如果需要分组&#x2F;类&#x2F;区（section），请使用&lt;SectionList&gt;. 例子： 1234&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flatList组件">
+<meta property="og:url" content="http://example.com/2019/09/04/flatList%E7%BB%84%E4%BB%B6/index.html">
+<meta property="og:site_name" content="彼方のE栈">
+<meta property="og:description" content="FlatList 组件高性能的简单列表组件， 支持下面这些常用的功能：  完全跨平台 支持水平布局模式 行组件显示或者隐藏时可配置回调事件 支持单独的头部组件 支持单独的尾部组件 支持自定义行间分割线 支持下拉刷新 支持上拉加载 支持跳转到指定行（ScrollToIndex） 支持多列布局  如果需要分组&#x2F;类&#x2F;区（section），请使用&lt;SectionList&gt;. 例子： 1234&amp;">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-09-04T13:56:53.000Z">
+<meta property="article:modified_time" content="2025-06-23T01:31:46.712Z">
+<meta property="article:author" content="境界の彼方">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="ReactNative">
+<meta name="twitter:card" content="summary">
+  <link rel="alternate" href="atom.xml" type="application/atom+xml">
+  <!-- 站点验证相关 -->
+  
+    
+      <meta name="google-site-verification" content="fVGTHvD3aoZ4YyO3S4WbusH7mbbYHqxjGcH_2_yjfp4" />
+    
+    
+      <meta name="baidu-site-verification" content="code-0fihzGJtdx" />
+    
+    
+      <meta name="msvalidate.01" content="0BD48478F2FB17419C4A9364056B5B44" />
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('https://dev.krt.moe/demo-assets/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('https://dev.krt.moe/demo-assets/bg.webp');
+        }
+      }
+    
+  </style>
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                        
+                                            <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                        
+                                    
+                                        
+                                            <li><a target="_blank" rel="noopener" href="https://hlymcn.com/serve-csgo/index.html"><i class="fa fa-server"></i>csgo服务器</a></li>
+                                        
+                                    
+                                        
+                                            <li><a target="_blank" rel="noopener" href="https://hlymcn.com/svgedit/index.html"><i class="fa fa-reddit-alien"></i>svg工作台</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/friends/"><i class="fa fa-paw"></i>好伙伴</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/about/"><i class="fa fa-send"></i>关于我</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS订阅</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">彼方のE栈</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>彼方のE栈</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/09/04/flatList%E7%BB%84%E4%BB%B6/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">flatList组件</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2019-09-04T13:56:53.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2019-09-04</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">境界の彼方</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~6.61K
+                        
+                        字
+                    </li>
+                
+                
+                    
+                        <li>
+                            <i class="fa fa-eye"></i>
+                            <span data-path="/2019/09/04/flatList%E7%BB%84%E4%BB%B6/" class="waline-pageview-count"> </span> 次阅读
+                        </li>
+                    
+                    
+                        <li>
+                            <i class="fa fa-commenting-o"></i>
+                            <span data-path="/2019/09/04/flatList%E7%BB%84%E4%BB%B6/" class="waline-comment-count"> </span> 条评论
+                        </li>
+                    
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1750642306712"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FlatList-%E7%BB%84%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">FlatList 组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7"><span class="toc-number">1.0.1.</span> <span class="toc-text">属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#renderItem"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">renderItem</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">1.0.1.1.1.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#data"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">data</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ItemSeparatorComponent"><span class="toc-number">1.0.1.3.</span> <span class="toc-text">ItemSeparatorComponent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ListEmptyComponent"><span class="toc-number">1.0.1.4.</span> <span class="toc-text">ListEmptyComponent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ListFooterComponent"><span class="toc-number">1.0.1.5.</span> <span class="toc-text">ListFooterComponent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ListHeaderComponent"><span class="toc-number">1.0.1.6.</span> <span class="toc-text">ListHeaderComponent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#columnWrapperStyle"><span class="toc-number">1.0.1.7.</span> <span class="toc-text">columnWrapperStyle</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#extraData"><span class="toc-number">1.0.1.8.</span> <span class="toc-text">extraData</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getItemLayout"><span class="toc-number">1.0.1.9.</span> <span class="toc-text">getItemLayout</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#horizontal"><span class="toc-number">1.0.1.10.</span> <span class="toc-text">horizontal</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#initialNumToRender"><span class="toc-number">1.0.1.11.</span> <span class="toc-text">initialNumToRender</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#initialScrollIndex"><span class="toc-number">1.0.1.12.</span> <span class="toc-text">initialScrollIndex</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#inverted"><span class="toc-number">1.0.1.13.</span> <span class="toc-text">inverted</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#keyExtractor"><span class="toc-number">1.0.1.14.</span> <span class="toc-text">keyExtractor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#numColumns"><span class="toc-number">1.0.1.15.</span> <span class="toc-text">numColumns</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onEndReached"><span class="toc-number">1.0.1.16.</span> <span class="toc-text">onEndReached</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onEndReachedThreshold"><span class="toc-number">1.0.1.17.</span> <span class="toc-text">onEndReachedThreshold</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onRefresh"><span class="toc-number">1.0.1.18.</span> <span class="toc-text">onRefresh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onViewableItemsChanged"><span class="toc-number">1.0.1.19.</span> <span class="toc-text">onViewableItemsChanged</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#refreshing"><span class="toc-number">1.0.1.20.</span> <span class="toc-text">refreshing</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">1.0.2.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#scrollToEnd"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">scrollToEnd()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#scrollToIndex"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">scrollToIndex()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#scrollToItem"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">scrollToItem()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#scrollToOffset"><span class="toc-number">1.0.2.4.</span> <span class="toc-text">scrollToOffset()</span></a></li></ol></li></ol></li></ol></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="FlatList-组件"><a href="#FlatList-组件" class="headerlink" title="FlatList 组件"></a>FlatList 组件</h1><p>高性能的简单列表组件， 支持下面这些常用的功能：</p>
+<ul>
+<li>完全跨平台</li>
+<li>支持水平布局模式</li>
+<li>行组件显示或者隐藏时可配置回调事件</li>
+<li>支持单独的头部组件</li>
+<li>支持单独的尾部组件</li>
+<li>支持自定义行间分割线</li>
+<li>支持下拉刷新</li>
+<li>支持上拉加载</li>
+<li>支持跳转到指定行（ScrollToIndex）</li>
+<li>支持多列布局</li>
+</ul>
+<p>如果需要分组/类/区（section），请使用<code>&lt;SectionList&gt;</code>.</p>
+<p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;FlatList</span><br><span class="line">    data=&#123;[&#123;key: &#x27;a&#x27;&#125;, &#123;key: &#x27;b&#x27;&#125;]&#125;</span><br><span class="line">    renderItem=&#123;(&#123;item&#125;) =&gt; &lt;Text&gt;&#123;item.key&#125;&lt;/Text&gt;&#125;</span><br><span class="line">  /&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><h4 id="renderItem"><a href="#renderItem" class="headerlink" title="renderItem"></a>renderItem</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">renderItem(&#123;item, index, separators&#125;);</span><br></pre></td></tr></table></figure>
+<p>从<code>data</code>中挨个取出数据并渲染到列表中。</p>
+<p>Provides additional metadata like <code>index</code> if you need it, as well as a more generic<br><code>separators.updateProps</code> function which let you set whatever props you want to change the rendering of either the leading separator or trailing separator in case the more common <code>highlight</code> and <code>unhighlight</code><br>(which set the <code>highlighted: boolean</code> prop) are insufficient for your use case.</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>function</td>
+<td align="center">是</td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>item</code> (Object): The item from <code>data</code> being rendered.</li>
+<li><code>index</code> (number): The index corresponding to this item in the <code>data</code> array.</li>
+<li><code>separators</code> (Object)<ul>
+<li><code>highlight</code> (Function)</li>
+<li><code>unhighlight</code> (Function)</li>
+<li><code>updateProps</code> (Function)<ul>
+<li><code>select</code> (enum(‘leading’, ‘trailing’))</li>
+<li><code>newProps</code> (Object)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;FlatList</span><br><span class="line">  ItemSeparatorComponent=&#123;Platform.OS !== &#x27;android&#x27; &amp;&amp; (&#123;highlighted&#125;) =&gt; (</span><br><span class="line">    &lt;View style=&#123;[style.separator, highlighted &amp;&amp; &#123;marginLeft: 0&#125;]&#125; /&gt;</span><br><span class="line">  )&#125;</span><br><span class="line">  data=&#123;[&#123;title: &#x27;Title Text&#x27;, key: &#x27;item1&#x27;&#125;]&#125;</span><br><span class="line">  renderItem=&#123;(&#123;item, index, separators&#125;) =&gt; (</span><br><span class="line">    &lt;TouchableHighlight</span><br><span class="line">      onPress=&#123;() =&gt; this._onPress(item)&#125;</span><br><span class="line">      onShowUnderlay=&#123;separators.highlight&#125;</span><br><span class="line">      onHideUnderlay=&#123;separators.unhighlight&#125;&gt;</span><br><span class="line">      &lt;View style=&#123;&#123;backgroundColor: &#x27;white&#x27;&#125;&#125;&gt;</span><br><span class="line">        &lt;Text&gt;&#123;item.title&#125;&lt;/Text&gt;</span><br><span class="line">      &lt;/View&gt;</span><br><span class="line">    &lt;/TouchableHighlight&gt;</span><br><span class="line">  )&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="data"><a href="#data" class="headerlink" title="data"></a>data</h4><p>为了简化起见，data 属性目前只支持普通数组。如果需要使用其他特殊数据结构，例如 immutable 数组，请直接使用更底层的<code>VirtualizedList</code>组件。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>array</td>
+<td align="center">是</td>
+</tr>
+</tbody></table>
+<h4 id="ItemSeparatorComponent"><a href="#ItemSeparatorComponent" class="headerlink" title="ItemSeparatorComponent"></a>ItemSeparatorComponent</h4><p>行与行之间的分隔线组件。不会出现在第一行之前和最后一行之后。By default, <code>highlighted</code> and <code>leadingItem</code> props are provided. <code>renderItem</code> provides separators.<code>highlight/unhighlight</code> which will update the <code>highlighted</code> prop, but you can also add custom props with <code>separators.updateProps</code>.</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>component</td>
+<td align="center">是</td>
+</tr>
+</tbody></table>
+<h4 id="ListEmptyComponent"><a href="#ListEmptyComponent" class="headerlink" title="ListEmptyComponent"></a>ListEmptyComponent</h4><p>列表为空时渲染该组件。可以是 React Component, 也可以是一个 render 函数，或者渲染好的 element。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>component, function, element</td>
+<td align="center">是</td>
+</tr>
+</tbody></table>
+<h4 id="ListFooterComponent"><a href="#ListFooterComponent" class="headerlink" title="ListFooterComponent"></a>ListFooterComponent</h4><p>尾部组件。可以是 React Component, 也可以是一个 render 函数，或者渲染好的 element。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>component, function, element</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="ListHeaderComponent"><a href="#ListHeaderComponent" class="headerlink" title="ListHeaderComponent"></a>ListHeaderComponent</h4><p>头部组件。可以是 React Component, 也可以是一个 render 函数，或者渲染好的 element。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>component, function, element</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="columnWrapperStyle"><a href="#columnWrapperStyle" class="headerlink" title="columnWrapperStyle"></a>columnWrapperStyle</h4><p>如果设置了多列布局（即将<code>numColumns</code>值设为大于 1 的整数），则可以额外指定此样式作用在每行容器上。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>style object</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="extraData"><a href="#extraData" class="headerlink" title="extraData"></a>extraData</h4><p>如果有除<code>data</code>以外的数据用在列表中（不论是用在<code>renderItem</code>还是头部或者尾部组件中），请在此属性中指定。同时此数据在修改时也需要先修改其引用地址（比如先复制到一个新的 Object 或者数组中），然后再修改其值，否则界面很可能不会刷新。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>any</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="getItemLayout"><a href="#getItemLayout" class="headerlink" title="getItemLayout"></a>getItemLayout</h4><p><code>(data, index) =&gt; &#123;length: number, offset: number, index: number&#125;</code></p>
+<p><code>getItemLayout</code>是一个可选的优化，用于避免动态测量内容尺寸的开销，不过前提是你可以提前知道内容的高度。如果你的行高是固定的，<code>getItemLayout</code>用起来就既高效又简单，类似下面这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getItemLayout=&#123;(data, index) =&gt; (</span><br><span class="line">   &#123;length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index&#125;</span><br><span class="line"> )&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于元素较多的列表（几百行）来说，添加<code>getItemLayout</code>可以极大地提高性能。注意如果你指定了<code>ItemSeparatorComponent</code>，请把分隔线的尺寸也考虑到 offset 的计算之中。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>function</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="horizontal"><a href="#horizontal" class="headerlink" title="horizontal"></a>horizontal</h4><p>设置为 true 则变为水平布局模式。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="initialNumToRender"><a href="#initialNumToRender" class="headerlink" title="initialNumToRender"></a>initialNumToRender</h4><p>指定一开始渲染的元素数量，最好刚刚够填满一个屏幕，这样保证了用最短的时间给用户呈现可见的内容。注意这第一批次渲染的元素不会在滑动过程中被卸载，这样是为了保证用户执行返回顶部的操作时，不需要重新渲染首批元素。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>number</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="initialScrollIndex"><a href="#initialScrollIndex" class="headerlink" title="initialScrollIndex"></a>initialScrollIndex</h4><p>开始时屏幕顶端的元素是列表中的第 <code>initialScrollIndex</code>个元素, 而不是第一个元素。如果设置了这个属性，则第一批<code>initialNumToRender</code>范围内的元素不会再保留在内存里，而是直接立刻渲染位于 <code>initialScrollIndex</code> 位置的元素。需要先设置 <code>getItemLayout</code> 属性。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>number</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="inverted"><a href="#inverted" class="headerlink" title="inverted"></a>inverted</h4><p>翻转滚动方向。实质是将 scale 变换设置为-1。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="keyExtractor"><a href="#keyExtractor" class="headerlink" title="keyExtractor"></a>keyExtractor</h4><p><code>(item: object, index: number) =&gt; string;</code><br>此函数用于为给定的 item 生成一个不重复的 key。Key 的作用是使 React 能够区分同类元素的不同个体，以便在刷新时能够确定其变化的位置，减少重新渲染的开销。若不指定此函数，则默认抽取<code>item.key</code>作为 key 值。若<code>item.key</code>也不存在，则使用数组下标。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>function</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="numColumns"><a href="#numColumns" class="headerlink" title="numColumns"></a>numColumns</h4><p>多列布局只能在非水平模式下使用，即必须是<code>horizontal=&#123;false&#125;</code>。此时组件内元素会从左到右从上到下按 Z 字形排列，类似启用了<code>flexWrap</code>的布局。组件内元素必须是等高的——暂时还无法支持瀑布流布局。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>number</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="onEndReached"><a href="#onEndReached" class="headerlink" title="onEndReached"></a>onEndReached</h4><p><code>(info: &#123;distanceFromEnd: number&#125;) =&gt; void</code></p>
+<p>当列表被滚动到距离内容最底部不足<code>onEndReachedThreshold</code>的距离时调用。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>function</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="onEndReachedThreshold"><a href="#onEndReachedThreshold" class="headerlink" title="onEndReachedThreshold"></a>onEndReachedThreshold</h4><p>决定当距离内容最底部还有多远时触发<code>onEndReached</code>回调。注意此参数是一个比值而非像素单位。比如，0.5 表示距离内容最底部的距离为当前列表可见长度的一半时触发。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>number</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="onRefresh"><a href="#onRefresh" class="headerlink" title="onRefresh"></a>onRefresh</h4><p><code>() =&gt; void</code></p>
+<p>如果设置了此选项，则会在列表头部添加一个标准的<code>RefreshControl</code>控件，以便实现“下拉刷新”的功能。同时你需要正确设置<code>refreshing</code>属性。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>function</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="onViewableItemsChanged"><a href="#onViewableItemsChanged" class="headerlink" title="onViewableItemsChanged"></a>onViewableItemsChanged</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(info: &#123;</span><br><span class="line">    viewableItems: array,</span><br><span class="line">    changed: array,</span><br><span class="line">  &#125;) =&gt; void</span><br></pre></td></tr></table></figure>
+
+<p>在可见行元素变化时调用。可见范围和变化频率等参数的配置请设置<code>viewabilityConfig</code>属性。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>function</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h4 id="refreshing"><a href="#refreshing" class="headerlink" title="refreshing"></a>refreshing</h4><p>在等待加载新数据时将此属性设为 true，列表就会显示出一个正在加载的符号。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean</td>
+<td align="center">否</td>
+</tr>
+</tbody></table>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h4 id="scrollToEnd"><a href="#scrollToEnd" class="headerlink" title="scrollToEnd()"></a>scrollToEnd()</h4><p><code>scrollToEnd([params]);</code></p>
+<p>滚动到底部。如果不设置<code>getItemLayout</code>属性的话，可能会比较卡。</p>
+<p>参数</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th align="center">类型</th>
+<th align="center">必填</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>params</td>
+<td align="center">object</td>
+<td align="center">否</td>
+<td align="center">看下面的说明</td>
+</tr>
+</tbody></table>
+<p>Valid <code>params</code> keys are:</p>
+<ul>
+<li>‘animated’ (boolean) - Whether the list should do an animation while scrolling. Defaults to <code>true</code>.</li>
+</ul>
+<h4 id="scrollToIndex"><a href="#scrollToIndex" class="headerlink" title="scrollToIndex()"></a>scrollToIndex()</h4><p><code>scrollToIndex(params);</code></p>
+<p>将位于指定位置的元素滚动到可视区的指定位置，当<code>viewPosition</code> 为 0 时将它滚动到屏幕顶部，为 1 时将它滚动到屏幕底部，为 0.5 时将它滚动到屏幕中央。</p>
+<blockquote>
+<p>注意：如果不设置<code>getItemLayout</code>属性的话，无法跳转到当前渲染区域以外的位置。</p>
+</blockquote>
+<p>参数：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th align="center">类型</th>
+<th align="center">必填</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>params</td>
+<td align="center">object</td>
+<td align="center">是</td>
+<td align="center">看下面的说明</td>
+</tr>
+</tbody></table>
+<p>Valid <code>params</code> keys are:</p>
+<ul>
+<li>‘animated’ (boolean) - Whether the list should do an animation while scrolling. Defaults to <code>true</code>.</li>
+<li>‘index’ (number) - The index to scroll to. Required.</li>
+<li>‘viewOffset’ (number) - A fixed number of pixels to offset the final target position. Required.</li>
+<li>‘viewPosition’ (number) - A value of <code>0</code> places the item specified by index at the top, <code>1</code> at the bottom, and <code>0.5</code> centered in the middle.</li>
+</ul>
+<h4 id="scrollToItem"><a href="#scrollToItem" class="headerlink" title="scrollToItem()"></a>scrollToItem()</h4><p><code>scrollToItem(params);</code></p>
+<p>这个方法会顺序遍历元素。尽可能使用<code>scrollToIndex</code>代替。</p>
+<blockquote>
+<p>注意：如果不设置<code>getItemLayout</code>属性的话，无法跳转到当前渲染区域以外的位置。</p>
+</blockquote>
+<p>参数：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th align="center">类型</th>
+<th align="center">必填</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>params</td>
+<td align="center">object</td>
+<td align="center">是</td>
+<td align="center">看下面的说明</td>
+</tr>
+</tbody></table>
+<p>Valid <code>params</code> keys are:</p>
+<ul>
+<li>‘animated’ (boolean) - Whether the list should do an animation while scrolling. Defaults to <code>true</code>.</li>
+<li>‘item’ (object) - The item to scroll to. Required.</li>
+<li>‘viewPosition’ (number)</li>
+</ul>
+<h4 id="scrollToOffset"><a href="#scrollToOffset" class="headerlink" title="scrollToOffset()"></a>scrollToOffset()</h4><p><code>scrollToOffset(params);</code></p>
+<p>滚动列表到指定的偏移（以像素为单位），等同于<code>ScrollView</code>的<code>scrollTo</code>方法。</p>
+<p>参数：<br>名称|类型|必填|说明|<br>–|:–:|:–:|:–:|<br>params|object|是|看下面的说明|</p>
+<p>Valid <code>params</code> keys are:</p>
+<ul>
+<li>‘offset’ (number) - The offset to scroll to. In case of <code>horizontal</code> being true, the offset is the x-value, in any other case the offset is the y-value. Required.</li>
+<li>‘animated’ (boolean) - Whether the list should do an animation while scrolling. Defaults to <code>true</code>.</li>
+</ul>
+<p>注：还有其他相关使用属性。以上内容整理自官网<br>    官网链接：<a target="_blank" rel="noopener" href="https://reactnative.cn/docs/view.html">https://reactnative.cn/docs/view.html</a></p>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2019/09/04/flatList%E7%BB%84%E4%BB%B6/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2019/09/04/flatList%E7%BB%84%E4%BB%B6/";
+            const title         = "「flatList组件」";
+            const excerpt       = `FlatList 组件高性能的简单列表组件， 支持下面这些常用的功能：
+
+完全跨平台
+支持水平布局模式
+行组件显示或者隐藏时可配置回调事件
+支持单独的头部组件
+支持单独的尾部组件
+支持自定义行间分割线
+支持下拉刷新
+支持上拉加载
+支持...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="tag-none-link" href="/tags/ReactNative/" rel="tag">ReactNative</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2025-06-23T01:31:46.712Z" itemprop="dateModified">最后编辑：2025-06-23</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" safeAreaView组件" href="/2019/09/04/safeAreaView组件/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" button组件" href="/2019/09/04/button组件/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+        <div id="w-comments" class="post-comments"></div>
+<link rel="stylesheet" href="/vendors/@waline/client@2.14.1/dist/waline.css" />
+<script>
+    var load_comm = () => {
+        const init = () => {
+            Waline.init(Object.assign({
+                el: '#w-comments',
+                path: '/2019/09/04/flatList%E7%BB%84%E4%BB%B6/',
+                dark: 'html[data-theme="dark"]',
+            }, JSON.parse('{"serverURL":"https://myblog-api-hazel.vercel.app","comment":true,"pageview":true}')));
+        }
+        if (typeof Waline === 'undefined') {
+            const src = '/vendors/@waline/client@2.14.1/dist/waline.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
+
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="https://greenhaha.oss-cn-beijing.aliyuncs.com/frontend/assets/header/header.png" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">一个从躺平状态站起来并开始折腾自己二次元开发者</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                60
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                7
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                50
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FlatList-%E7%BB%84%E4%BB%B6"><span class="toc-text">FlatList 组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7"><span class="toc-text">属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#renderItem"><span class="toc-text">renderItem</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#data"><span class="toc-text">data</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ItemSeparatorComponent"><span class="toc-text">ItemSeparatorComponent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ListEmptyComponent"><span class="toc-text">ListEmptyComponent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ListFooterComponent"><span class="toc-text">ListFooterComponent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ListHeaderComponent"><span class="toc-text">ListHeaderComponent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#columnWrapperStyle"><span class="toc-text">columnWrapperStyle</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#extraData"><span class="toc-text">extraData</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getItemLayout"><span class="toc-text">getItemLayout</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#horizontal"><span class="toc-text">horizontal</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#initialNumToRender"><span class="toc-text">initialNumToRender</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#initialScrollIndex"><span class="toc-text">initialScrollIndex</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#inverted"><span class="toc-text">inverted</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#keyExtractor"><span class="toc-text">keyExtractor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#numColumns"><span class="toc-text">numColumns</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onEndReached"><span class="toc-text">onEndReached</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onEndReachedThreshold"><span class="toc-text">onEndReachedThreshold</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onRefresh"><span class="toc-text">onRefresh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onViewableItemsChanged"><span class="toc-text">onViewableItemsChanged</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#refreshing"><span class="toc-text">refreshing</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#scrollToEnd"><span class="toc-text">scrollToEnd()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#scrollToIndex"><span class="toc-text">scrollToIndex()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#scrollToItem"><span class="toc-text">scrollToItem()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#scrollToOffset"><span class="toc-text">scrollToOffset()</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%A8%E6%96%B0%E4%BD%93%E9%AA%8C/">全新体验</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%A4%A7%E5%85%A8/">工具大全</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%A1%A3%E6%95%99%E7%A8%8B/">文档教程</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%89%96%E6%9E%90/">知识剖析</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/">规范总结</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E5%88%92%E6%80%BB%E7%BB%93/">计划总结</a><span class="category-list-count">3</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/2023/" style="font-size: 0.6em;">2023</a> <a href="/tags/API/" style="font-size: 0.6em;">API</a> <a href="/tags/CSS/" style="font-size: 0.64em;">CSS</a> <a href="/tags/ELM/" style="font-size: 0.64em;">ELM</a> <a href="/tags/EME/" style="font-size: 0.6em;">EME</a> <a href="/tags/HTML/" style="font-size: 0.68em;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 0.8em;">JavaScript</a> <a href="/tags/JavaScript%E6%8A%80%E6%9C%AF/" style="font-size: 0.6em;">JavaScript技术</a> <a href="/tags/Node/" style="font-size: 0.76em;">Node</a> <a href="/tags/React/" style="font-size: 0.68em;">React</a> <a href="/tags/ReactNative/" style="font-size: 0.72em;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 0.6em;">TypeScript</a> <a href="/tags/Vue/" style="font-size: 0.6em;">Vue</a> <a href="/tags/chromeAPI/" style="font-size: 0.6em;">chromeAPI</a> <a href="/tags/express/" style="font-size: 0.64em;">express</a> <a href="/tags/express-session/" style="font-size: 0.6em;">express-session</a> <a href="/tags/git/" style="font-size: 0.6em;">git</a> <a href="/tags/google/" style="font-size: 0.6em;">google</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2025/06/23/2025%E5%B9%B4%E6%80%BB%E7%BB%93/"><i class="fa  fa-book"></i> 2025年年中总结</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/02/19/jest(1)/"><i class="fa  fa-book"></i> Jest 测试工具（1）</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/21/%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95/"><i class="fa  fa-book"></i> 加密媒体扩展</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/20/CDN%E5%8F%8APCDN/"><i class="fa  fa-book"></i> CDN与PCDN</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/14/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%90%8C%E6%AD%A5%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/"><i class="fa  fa-book"></i> 音视频同步原理及实现</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        <li><a href="mailto:a15114101085@aliyun.com"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/greenhaha"><i class="fa fa-github"></i></a></li>
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2025 彼方のE栈 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 境界の彼方.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">辽ICP备19004490号-2</a></li>
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

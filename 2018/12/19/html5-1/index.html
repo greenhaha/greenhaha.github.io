@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>Html5.1 新属性 | 彼方のE栈</title>
+  
+  <meta name="author" content="境界の彼方" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta name="description" content="自2014年10月发布html标准制定至今，html的规范一直没有停止。在2016年的11月，W3C 发布了最新的html规范：&#39;html 5.1&#39;。在这个5.1当中，添加了很多新的特性同时html的规范得到重大改进。我们可以使用html来创建更加灵活的网络体验。 为响应式设计定义了多个图片资源在html5.1中，我们可以使用 &lt;picture&gt;标签和srcset属性来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Html5.1 新属性">
+<meta property="og:url" content="http://example.com/2018/12/19/html5-1/index.html">
+<meta property="og:site_name" content="彼方のE栈">
+<meta property="og:description" content="自2014年10月发布html标准制定至今，html的规范一直没有停止。在2016年的11月，W3C 发布了最新的html规范：&#39;html 5.1&#39;。在这个5.1当中，添加了很多新的特性同时html的规范得到重大改进。我们可以使用html来创建更加灵活的网络体验。 为响应式设计定义了多个图片资源在html5.1中，我们可以使用 &lt;picture&gt;标签和srcset属性来">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-12-19T03:35:03.000Z">
+<meta property="article:modified_time" content="2025-06-23T01:31:46.712Z">
+<meta property="article:author" content="境界の彼方">
+<meta name="twitter:card" content="summary">
+  <link rel="alternate" href="atom.xml" type="application/atom+xml">
+  <!-- 站点验证相关 -->
+  
+    
+      <meta name="google-site-verification" content="fVGTHvD3aoZ4YyO3S4WbusH7mbbYHqxjGcH_2_yjfp4" />
+    
+    
+      <meta name="baidu-site-verification" content="code-0fihzGJtdx" />
+    
+    
+      <meta name="msvalidate.01" content="0BD48478F2FB17419C4A9364056B5B44" />
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('https://dev.krt.moe/demo-assets/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('https://dev.krt.moe/demo-assets/bg.webp');
+        }
+      }
+    
+  </style>
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                        
+                                            <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                        
+                                    
+                                        
+                                            <li><a target="_blank" rel="noopener" href="https://hlymcn.com/serve-csgo/index.html"><i class="fa fa-server"></i>csgo服务器</a></li>
+                                        
+                                    
+                                        
+                                            <li><a target="_blank" rel="noopener" href="https://hlymcn.com/svgedit/index.html"><i class="fa fa-reddit-alien"></i>svg工作台</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/friends/"><i class="fa fa-paw"></i>好伙伴</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/about/"><i class="fa fa-send"></i>关于我</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS订阅</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">彼方のE栈</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>彼方のE栈</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/12/19/html5-1/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Html5.1 新属性</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2018-12-19T03:35:03.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2018-12-19</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">境界の彼方</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~2.82K
+                        
+                        字
+                    </li>
+                
+                
+                    
+                        <li>
+                            <i class="fa fa-eye"></i>
+                            <span data-path="/2018/12/19/html5-1/" class="waline-pageview-count"> </span> 次阅读
+                        </li>
+                    
+                    
+                        <li>
+                            <i class="fa fa-commenting-o"></i>
+                            <span data-path="/2018/12/19/html5-1/" class="waline-comment-count"> </span> 条评论
+                        </li>
+                    
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1750642306712"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%E5%AE%9A%E4%B9%89%E4%BA%86%E5%A4%9A%E4%B8%AA%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90"><span class="toc-number">1.</span> <span class="toc-text">为响应式设计定义了多个图片资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E6%88%96%E8%80%85%E9%9A%90%E8%97%8F%E9%A2%9D%E5%A4%96%E4%BF%A1%E6%81%AF"><span class="toc-number">2.</span> <span class="toc-text">显示或者隐藏额外信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E5%8A%9F%E8%83%BD%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E8%8F%9C%E5%8D%95"><span class="toc-number">3.</span> <span class="toc-text">将功能添加到浏览器的上下文菜单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%A0%B7%E5%BC%8F%E5%92%8C%E8%84%9A%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%8A%A0%E5%AF%86%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">对样式和脚本使用加密随机数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%9B%B6%E5%AE%BD%E5%BA%A6%E5%9B%BE%E5%83%8F"><span class="toc-number">5.</span> <span class="toc-text">使用零宽度图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%A6%BB%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E9%98%B2%E6%AD%A2%E7%BD%91%E7%BB%9C%E9%92%93%E9%B1%BC%E6%94%BB%E5%87%BB"><span class="toc-number">6.</span> <span class="toc-text">分离浏览器上下文防止网络钓鱼攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E9%80%89%E9%A1%B9"><span class="toc-number">7.</span> <span class="toc-text">空选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E5%9B%BE%E5%BD%A2%E6%A0%87%E9%A2%98"><span class="toc-number">8.</span> <span class="toc-text">图片图形标题</span></a></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><p>自2014年10月发布html标准制定至今，html的规范一直没有停止。在2016年的11月，W3C 发布了最新的html规范：&#39;html 5.1&#39;。在这个5.1当中，添加了很多新的特性同时html的规范得到重大改进。我们可以使用html来创建更加灵活的网络体验。</p>
+<h2 id="为响应式设计定义了多个图片资源"><a href="#为响应式设计定义了多个图片资源" class="headerlink" title="为响应式设计定义了多个图片资源"></a>为响应式设计定义了多个图片资源</h2><p>在html5.1中，我们可以使用 <a target="_blank" rel="noopener" href="https://www.w3.org/TR/html/semantics-embedded-content.html#elementdef-picture">&lt;picture&gt;</a>标签和srcset属性来使响应式图片选择成为可能。&lt;picture&gt;标签标识图片的容器，允许开发者声明不同的图像资源用来适应UA的视口大小，屏幕像素密度，屏幕类型和在响应式设计中使用的其他参数。</p>
+<p>注：如果想要设置图片大小  你需要在img标签设置大小  其他自适应的图片都会按照img设置的大小展示</p>
+<p>&lt;picture&gt;</p>
+<pre><code>&lt;source srcset=&quot;./image/0.jpeg&quot; media=&quot;(max-width:760px)&quot;&gt;
+
+&lt;source srcset=&quot;./image/1.jpg&quot; media=&quot;(max-width: 1024px)&quot;&gt;
+
+&lt;img src=&quot;./image/004.jpg&quot; style=&quot;width:300px;height:400px&quot;
+</code></pre>
+<p> alt=”mypicture” srcset=”default-pic.jpg”&gt;</p>
+<p>&lt;/picture&gt;</p>
+<h2 id="显示或者隐藏额外信息"><a href="#显示或者隐藏额外信息" class="headerlink" title="显示或者隐藏额外信息"></a>显示或者隐藏额外信息</h2><p>使用&lt;details&gt;和&lt;summary&gt;标签，可以向内容项添加扩展信息。默认情况下是不显示额外信息。如果用户对额外信息感兴趣可以点击查看。在使用的时候&lt;details&gt;标签需要放到&lt;summary&gt;标签外部。你可以在&lt;summary&gt;标签之后添加要隐藏的额外信息。</p>
+<p>&lt;details&gt;</p>
+<pre><code> &lt;summary&gt;这里含有隐藏信息，请点击查看&lt;/summary&gt;
+
+         &lt;div&amp;gt;这条信息是一个隐藏信息&lt;/div&gt;
+
+            &lt;img
+
+                    src=&quot;./image/004.jpg&quot;
+
+                    alt=&quot;mypicture&quot;
+
+                    srcset=&quot;default-hd.jpg 2x&quot;
+
+                &gt;
+</code></pre>
+<p>&lt;/details&gt;</p>
+<h2 id="将功能添加到浏览器的上下文菜单"><a href="#将功能添加到浏览器的上下文菜单" class="headerlink" title="将功能添加到浏览器的上下文菜单"></a>将功能添加到浏览器的上下文菜单</h2><p>使用&lt;menuitem&gt;标签和type = “context”属性，可以使自定义的菜单添加到浏览器的上下文菜单中。使用时需要把&lt;menuitem&gt;标签放到&lt;menu&gt;标签中。在使用的时&lt;menu&gt;标签中的id必须要与我们添加的上下文菜单的元素的&lt;contextmenu&gt;属性保持相同。</p>
+<p>注：浏览器对这个功能不太友好，firefox支持使用  chrome已经禁用这个功能</p>
+<p>本实例仅限firefox 浏览器使用有效</p>
+<p>&lt;div contextmenu=”rightclickmenu” style=”width: 200px; height: 300px; backgroundColor: green”&gt;Right click me&lt;/div&gt;</p>
+<pre><code>            &lt;menu type=&quot;context&quot; id=&quot;rightclickmenu&quot;&gt;
+
+                &lt;menuitem type=&quot;checkbox&quot; label=&quot;I HTML5.1.&quot;&gt;
+
+               &lt;/menu&gt;
+</code></pre>
+<h2 id="对样式和脚本使用加密随机数"><a href="#对样式和脚本使用加密随机数" class="headerlink" title="对样式和脚本使用加密随机数"></a>对样式和脚本使用加密随机数</h2><p>使用html5.1中 我们可以通过&lt;script&gt;和&lt;style&gt;元素中使用nonce属性添加加密随机数到样式和脚本中。由于随机数是随机生成的并且只能使用一次。当每次请求时，都会重新生成。网站的<a target="_blank" rel="noopener" href="https://www.cspplayground.com/home">安全策略</a>可以使用随机数来决定是否应在网页上使用特定样式。等多内容查看<a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/security/csp/">Google开发者网页基础</a></p>
+<p>&lt;script nonce=&#39;adfjaf8eda64U7&#39;&gt;</p>
+<pre><code>        // some JavaScript
+
+        &lt;/script&gt;
+</code></pre>
+<h2 id="使用零宽度图像"><a href="#使用零宽度图像" class="headerlink" title="使用零宽度图像"></a>使用零宽度图像</h2><p>在html5.1中 允许开发人员创建width为0的零宽度图片。如果想要包含不想向用户展示的图像，这个特性很好用。建议零宽度图像与空alt属性一起使用。</p>
+<p>&lt;img src=”yourpicture.jpg” width=”0” height=”0” alt=””&gt;</p>
+<h2 id="分离浏览器上下文防止网络钓鱼攻击"><a href="#分离浏览器上下文防止网络钓鱼攻击" class="headerlink" title="分离浏览器上下文防止网络钓鱼攻击"></a>分离浏览器上下文防止网络钓鱼攻击</h2><p>HTML 5.1已经标准化了rel =”noopener”属性的用法，它消除了分隔浏览器上下文的问题，你可以在&lt;a&gt;和&lt;area&gt;元素中使用rel =”noopener”。</p>
+<p>注：本特性针对的时<a target="_blank" rel="noopener" href="https://www.jitbit.com/alexblog/256-targetblank---the-most-underestimated-vulnerability-ever/">target =”_ blank”漏洞</a></p>
+<p>&lt;a href=”#” target=”_blank” rel=”noopener”&gt;</p>
+<pre><code>            Your link that won&amp;#39;t make troubles
+
+        &lt;/a&gt;
+</code></pre>
+<h2 id="空选项"><a href="#空选项" class="headerlink" title="空选项"></a>空选项</h2><p>HTML 5.1允许开发人员创建一个空的&lt;option&gt;元素。&lt;option&gt;标签可以是&lt;select&gt;，&lt;optgroup&gt;或&lt;datalist&gt;元素的子元素。 如果你不想建议用户应该选择哪个选项，以及在想要设计用户友好的表单时，使用空的&lt;option&gt;可能很有用。</p>
+<h2 id="图片图形标题"><a href="#图片图形标题" class="headerlink" title="图片图形标题"></a>图片图形标题</h2><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/html/grouping-content.html#elementdef-figcaption">&lt;figcaption&gt;</a>标签表示<a target="_blank" rel="noopener" href="https://www.w3.org/TR/html/grouping-content.html#elementdef-figure">&lt;figure&gt;</a>元素的题注或说明，其是用于视觉（例如插图，照片和图表）的容器。以前，&lt;figcaption&gt;标记只能用作&lt;figure&gt;元素的第一个或最后一个子元素。HTML 5.1已放松此规则，现在&lt;figcaption&gt;可以出现在其&lt;figure&gt;容器中的任何位置。</p>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2018/12/19/html5-1/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2018/12/19/html5-1/";
+            const title         = "「Html5.1 新属性」";
+            const excerpt       = `自2014年10月发布html标准制定至今，html的规范一直没有停止。在2016年的11月，W3C 发布了最新的html规范：&#39;html 5.1&#39;。在这个5.1当中，添加了很多新的特性同时html的规范得到重大改进。...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    
+                </div>
+                <div class="pull-date">
+                    <time datetime="2025-06-23T01:31:46.712Z" itemprop="dateModified">最后编辑：2025-06-23</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" React浅比较" href="/2018/11/21/react浅比较/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" shadowsocks简介" href="/2019/01/12/shadowsocket/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+        <div id="w-comments" class="post-comments"></div>
+<link rel="stylesheet" href="/vendors/@waline/client@2.14.1/dist/waline.css" />
+<script>
+    var load_comm = () => {
+        const init = () => {
+            Waline.init(Object.assign({
+                el: '#w-comments',
+                path: '/2018/12/19/html5-1/',
+                dark: 'html[data-theme="dark"]',
+            }, JSON.parse('{"serverURL":"https://myblog-api-hazel.vercel.app","comment":true,"pageview":true}')));
+        }
+        if (typeof Waline === 'undefined') {
+            const src = '/vendors/@waline/client@2.14.1/dist/waline.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
+
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="https://greenhaha.oss-cn-beijing.aliyuncs.com/frontend/assets/header/header.png" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">一个从躺平状态站起来并开始折腾自己二次元开发者</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                60
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                7
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                50
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%E5%AE%9A%E4%B9%89%E4%BA%86%E5%A4%9A%E4%B8%AA%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90"><span class="toc-text">为响应式设计定义了多个图片资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E6%88%96%E8%80%85%E9%9A%90%E8%97%8F%E9%A2%9D%E5%A4%96%E4%BF%A1%E6%81%AF"><span class="toc-text">显示或者隐藏额外信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E5%8A%9F%E8%83%BD%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E8%8F%9C%E5%8D%95"><span class="toc-text">将功能添加到浏览器的上下文菜单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%A0%B7%E5%BC%8F%E5%92%8C%E8%84%9A%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%8A%A0%E5%AF%86%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="toc-text">对样式和脚本使用加密随机数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%9B%B6%E5%AE%BD%E5%BA%A6%E5%9B%BE%E5%83%8F"><span class="toc-text">使用零宽度图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%A6%BB%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E9%98%B2%E6%AD%A2%E7%BD%91%E7%BB%9C%E9%92%93%E9%B1%BC%E6%94%BB%E5%87%BB"><span class="toc-text">分离浏览器上下文防止网络钓鱼攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E9%80%89%E9%A1%B9"><span class="toc-text">空选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E5%9B%BE%E5%BD%A2%E6%A0%87%E9%A2%98"><span class="toc-text">图片图形标题</span></a></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%A8%E6%96%B0%E4%BD%93%E9%AA%8C/">全新体验</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%A4%A7%E5%85%A8/">工具大全</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%A1%A3%E6%95%99%E7%A8%8B/">文档教程</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%89%96%E6%9E%90/">知识剖析</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/">规范总结</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E5%88%92%E6%80%BB%E7%BB%93/">计划总结</a><span class="category-list-count">3</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/2023/" style="font-size: 0.6em;">2023</a> <a href="/tags/API/" style="font-size: 0.6em;">API</a> <a href="/tags/CSS/" style="font-size: 0.64em;">CSS</a> <a href="/tags/ELM/" style="font-size: 0.64em;">ELM</a> <a href="/tags/EME/" style="font-size: 0.6em;">EME</a> <a href="/tags/HTML/" style="font-size: 0.68em;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 0.8em;">JavaScript</a> <a href="/tags/JavaScript%E6%8A%80%E6%9C%AF/" style="font-size: 0.6em;">JavaScript技术</a> <a href="/tags/Node/" style="font-size: 0.76em;">Node</a> <a href="/tags/React/" style="font-size: 0.68em;">React</a> <a href="/tags/ReactNative/" style="font-size: 0.72em;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 0.6em;">TypeScript</a> <a href="/tags/Vue/" style="font-size: 0.6em;">Vue</a> <a href="/tags/chromeAPI/" style="font-size: 0.6em;">chromeAPI</a> <a href="/tags/express/" style="font-size: 0.64em;">express</a> <a href="/tags/express-session/" style="font-size: 0.6em;">express-session</a> <a href="/tags/git/" style="font-size: 0.6em;">git</a> <a href="/tags/google/" style="font-size: 0.6em;">google</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2025/06/23/2025%E5%B9%B4%E6%80%BB%E7%BB%93/"><i class="fa  fa-book"></i> 2025年年中总结</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/02/19/jest(1)/"><i class="fa  fa-book"></i> Jest 测试工具（1）</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/21/%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95/"><i class="fa  fa-book"></i> 加密媒体扩展</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/20/CDN%E5%8F%8APCDN/"><i class="fa  fa-book"></i> CDN与PCDN</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/14/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%90%8C%E6%AD%A5%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/"><i class="fa  fa-book"></i> 音视频同步原理及实现</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        <li><a href="mailto:a15114101085@aliyun.com"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/greenhaha"><i class="fa fa-github"></i></a></li>
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2025 彼方のE栈 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 境界の彼方.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">辽ICP备19004490号-2</a></li>
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

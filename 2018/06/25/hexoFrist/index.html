@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo初次使用体验 | 彼方のE栈</title>
+  
+  <meta name="author" content="境界の彼方" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="JavaScript技术, hexo" />
+  
+  <meta name="description" content="前言虽然之前使用过wordpress搭建过博客，总体体验还（痛）行（苦）。之前看到很多人用hexo来搭建博客并且展示效果都挺好。于是今天来体验一把hexo的神奇。 如何搭建基于hexo的个人博客： 准备工作：     Node、代码编辑器（推荐vscode 很好很强大）、浏览器（推荐谷歌 火狐 国内浏览器没测试不知道）  安装Node.jsHexo是基于node.js。Node.js下载地址：Do">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo初次使用体验">
+<meta property="og:url" content="http://example.com/2018/06/25/hexoFrist/index.html">
+<meta property="og:site_name" content="彼方のE栈">
+<meta property="og:description" content="前言虽然之前使用过wordpress搭建过博客，总体体验还（痛）行（苦）。之前看到很多人用hexo来搭建博客并且展示效果都挺好。于是今天来体验一把hexo的神奇。 如何搭建基于hexo的个人博客： 准备工作：     Node、代码编辑器（推荐vscode 很好很强大）、浏览器（推荐谷歌 火狐 国内浏览器没测试不知道）  安装Node.jsHexo是基于node.js。Node.js下载地址：Do">
+<meta property="og:locale">
+<meta property="og:image" content="data:image/*;base64,iVBORw0KGgoAAAANSUhEUgAAARYAAABSCAIAAAAekWzWAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACnklEQVR42u3dy0HjMBRAUQpwAfRLe97TDlviWE9Pkv85Z4fHJBnQTWTjz9f3z+8E9PqSEEgIJAQSAgkBEgIJgYRAQsBOCc3z7GcHLwnNrzoqWnxv/qHGSZqTE1oMwb6E+h7nshUd1j8SukRCO1VkiFBPqDpQSu/Hq3O5c4fgts8oIS6UUGlb633h/y/j9eNXFTzI6vO2vs6+mWHwknhsQk17FEqjuWn5otvM+nFFg6+n9dN1frP6HzT+Pj2h6tgqDcHkp1bfzCp4kMMS6nhtSKhhIld9t46ry8ziNk+odad//BPTz6MSGnyXzbzrBxOtkU356tPt9Ck0votCQk9OqPQ30yMnTlP7TvOm9TPLS9sw4wHo54EJTeE+onxCyQlbvH5y5Uw/wdES1ad4r2ir3WgSemZCxgRICO6ZEEgIkBBcMKG+PVHJwxFsaPHwhPpOgljtrW+PsGMx+biEtv0UkhAS6k/IsTDcI6Hq+Tndo38koT2OT4O9PoVGjpGTEBLqOVR014ScV8P9toVWNzzO2haa1/htISF/F+K5CU2Np6zFIzt/pnfmOgR+T9w1oSk8/yczB4uXV89EMpHjTgkBEgIJgYRAQoCEQEIgIZAQICGQEEgIJARICCQEEgIJgYQACYGE4DMScjEQWCbUermc6u1PjrzyjqQ5OaG++whVFx45slWEhFTEPRPKXE80E8zpCamIJyeUucrp+0ZU8qqoKuLSCTXtUVj9snX5otvM+irifglN6TtB5K9S37StpR8+JaEpvLx96Z+CWaVZHBdKaHA3QOYOeaVviW/rMBgwnJNQ671WO24ymdwWGp/4wUEJTeHBBPmEkhO2eP3kyvrhWgmNMIKRkITgvIRAQoCEQEIgIZAQICGQEEgIJASU/AGQabLsqabhhQAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/*;base64,iVBORw0KGgoAAAANSUhEUgAAAQcAAABSCAIAAADW/YYAAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADOElEQVR42u3dv2oUQQDA4XTmktsUFmJvYv5IwMLeTgRfQBQEu2BjZymIIGKVlKKN73O9ryNRkOxmZ3Zmdi+5ufu+7o6988D53c7sZXe3tpuD+59/z/MtFos5rKOtq1Us2grC6Lw2/a3GUynTVTHf/1dFZ1SVVVH2PsJAFcKghioGB1NoItQ7ibrdYSoMaqoitG65/uTVh/Ht458q9Cad50PvXLwoin9+Vr2KO7sPUqrIWnCHBmjW850hm7J9PIzI86ENUnY+oYp635O12lekh5E4+hP3LWUTpMibpFeaWEXBZ2Dlq/h7ZPYGquidKUW+a+MhpUyfbreK/y+URH1VzJqHxcegsr6bIzOcMevmwX9OFUxTRejnuaXOWMpmUMXbT7WuyF13Uc0M6vqRk+IqEmdK8e0TN05JInJoK3IMqnOcShWbW8UY1f33G68Mz6A2apD5DYGbqALMoEAVsIFVlP39T+7s3GyeyqooXmGnJ1Tj0hxVZCdRtr0wUIUqqHxdkT7Ki0/yVgWV7SsSR3nWS1RBNVW8efu+98js5KNcFVRTxY+fv1QBrSrOL76XnV+hCta2ii9fz+PrishievB86ND2kqCOKuaBA0qDZ1b0nqKQuEaH1aziwt9BgSogeQYFXFbx8dM3VUCrirN3H1QBrSpevjpTBbSqeP7itSqgVcXjJ89UAa0qjk+fqgJaVdy9d6oKaFWxs+d6UNCt4lAVYF8B9hWQVcWsOVIFdKo4VgW0Z1DNI1VAq4rdPb9XQLcK+wpQBQxVcVJWhYsSsBFV5N6/InQD4t57li6bSpmwiqPiu9Dn3g9bGNRRxU6zPlUIg6mquFxtp1wPM6WB+QpcOVMY1FRFaN1y/cmrD+PbJ34qmL6KrAV378Pc5zsppmwvDKapYtacjKlicJgOXnE5XkXZcJcEdVQxD9xkLHJH40hIpk8scwY14shsyhf8mKv2u90eK1RF6Oe5MVWUrSvGz7igoIrD+P0rcqtInCnFt0/cWBIsqYppzts2KFmn1bYqYDlVgCpAFaAKUAWgClAFqAJUAVNV4Ur9oAowgwJVgCpg6iq2mwNVgCogXsV8XxVgXwGqAFXAGH8AVui2A+9OzVcAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/*;base64,iVBORw0KGgoAAAANSUhEUgAAArEAAAAuCAIAAACwF9bFAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADRUlEQVR42u3b2Y3iQBQF0I7D2aHOBhEIHQiEgUQSI/GBaC+4XGWXzdYwLOd8MTSLXR7pXj+brwMAwOHwZQkAgK4T7Pf73W73DwD4SGUN+GoKgbUAgA9XdQITAgCg6gRWAQDQCQAAnQAA0AkAAJ0AANAJAACdAADQCQAAnQAA0AkAAJ0AANAJAACdAADQCQCAl+4Em+WsKIr56oFfuVoUjdlyM9iSyuKBW7NdfheL9fP8xxhZnOZv8/zzAOgET9MJqg+5NMjL8MvF2zUf9U6dYGpxdAIAneDp6QQP6QQAfG4n2P7MZj/b+uywHqmvQ4yVgRGGzG2CrhfFfFkmXHUqua7P/r+X2+nkaT+5/JY0kBarMMlPPiR8aXg+emY49F53fxzk7v06QW+TpsO16QSDxUw/p1ufeo+iAxGtT3ft48y5S/32/OWSweL8nwsrADxTJwiBVD0+xs/2GPybNtebBGrjqk76MjnOPdcsXz/oBCF7qschzgevnA7y1SJEY7Vtp2LvjzpBtyB1jp6aAcSLWT1udzB+nCxCfVCqLYyOSO811eP8QvW+d7Q6PMkQBYCn6gQhNro8SMfdZdw2ydQ+aJP7lk7QvTH+axW32dnD6awabsydYi/O5jjXp+cEgwUvNyPa0+RAHNdkGW9/2g+igzImU5J0AgCd4PZO0Dx//04Qj7uT8++RrArXJnIz/NtjL569p/P8bk5wcgVGOsF6cEkkOafvTwJ6pSHuBPEihLf0O4ROAKATvNacIA2naBtyWRVm7I+dE+Qz+JpOMJrZ3S0IyRt7c4WTcwKdAIA/7QTRCesjO0F6iX3wz34u5n5Ed5/Yu/jtI51g/J6Abr/i+X9SkjKrkV3A8cqiEwDoBGd3giJ7S/xlnaD/k4HolrpsJ0he38+zbtge3hvftx9dfe+P5Y/PNzdURq4Mv/SCxbX3Ewz2t3lNvZFhB5sDkdSCs+cTvc+Pfjxyz8UB4FU7wTkxxtSZ9Fm3FACATvB+0vv503saAEAn+CTptQOFAIB37gQAgE4AAOgEAIBOAADoBACATgAA6AQAgE4AAOgEAIBOAADoBADAZ3aC3W5nIQBAJzjs93sLAQA6waGpBaYFAPCxyhrwC7CCP81tFoJ7AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/*;base64,iVBORw0KGgoAAAANSUhEUgAAAq4AAAAqCAIAAAD9I062AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACa0lEQVR42u3c6W2DMBgG4M7BdlG3qRiEDkLGqMQS/d3YCT44EtJDzfE8vwiHOVTpe21MXz4BgCf24hEAgCgAAIgCAIAoAACIAgCAKAAAiAIAgCgAAIgCAIAoAACIAgCAKAAAiAIAgCgAADxuFBjed81b/z+X9tHtmmb72cOlNk27//4JV2/2eCVB2/uTAUAUuKcoEBrZWr8v3Ow1TQGAKHAbRAEA+HkU6N/G8fHc5x6619PKXD5jP373Phx/xaNS7ezbcffmtRsuXVY6Y2ptbKTt03B9bic1vus+yp0nyq1X3exqFEg7nz31hfMCwG1HgbEeh+Wx+oYSeEoAIRPkgr1vT5UvLKTCWe4TM8S2kYbDWWZRIMWLsFxX68OaWdG9dlQghY/q+pebKh9IPPa0NT+cmFp+Mn0BAG5iVGBWC2PvPO10qJpFRz8e0h3qfS6Bk7K6uTwvRYFc7M9v/WYUyBllFjWmTU12GMZbLtfXOQkAHiQK5Bn1i2P+s35/nRXuJAoMVZpZjgLl6dL+xe2HQ7wdAOAxo8BqfY0Vup+9NahHEe5jVKBu7cKoQP5ZTCAwJADAQ0aBM+/7U5mvOsShTJZzBTYWyF+IAgtTCjbdbDkPYC1VhJJfzhU4LvvQAIAniAKf1RcE1VS7XHdj57hKA9MvDtYzwGTy/1jyV6LAvj33pUDeuuELgqVXHtX6+h8NFQMAiysNDABw51GAq01GBUwXAEAUeC71TIjyI0MAEAWeQv2CQA4AQBQAAEQBAEAUAABEAQBAFAAARAEAQBQAAEQBAEAUAABEAQBAFAAARAEAQBQAAEQBAOCPfAGzakj2yH+ZIQAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/*;base64,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">
+<meta property="article:published_time" content="2018-06-25T03:48:43.000Z">
+<meta property="article:modified_time" content="2025-06-23T01:31:46.712Z">
+<meta property="article:author" content="境界の彼方">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="JavaScript技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/*;base64,iVBORw0KGgoAAAANSUhEUgAAARYAAABSCAIAAAAekWzWAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACnklEQVR42u3dy0HjMBRAUQpwAfRLe97TDlviWE9Pkv85Z4fHJBnQTWTjz9f3z+8E9PqSEEgIJAQSAgkBEgIJgYRAQsBOCc3z7GcHLwnNrzoqWnxv/qHGSZqTE1oMwb6E+h7nshUd1j8SukRCO1VkiFBPqDpQSu/Hq3O5c4fgts8oIS6UUGlb633h/y/j9eNXFTzI6vO2vs6+mWHwknhsQk17FEqjuWn5otvM+nFFg6+n9dN1frP6HzT+Pj2h6tgqDcHkp1bfzCp4kMMS6nhtSKhhIld9t46ry8ziNk+odad//BPTz6MSGnyXzbzrBxOtkU356tPt9Ck0votCQk9OqPQ30yMnTlP7TvOm9TPLS9sw4wHo54EJTeE+onxCyQlbvH5y5Uw/wdES1ad4r2ir3WgSemZCxgRICO6ZEEgIkBBcMKG+PVHJwxFsaPHwhPpOgljtrW+PsGMx+biEtv0UkhAS6k/IsTDcI6Hq+Tndo38koT2OT4O9PoVGjpGTEBLqOVR014ScV8P9toVWNzzO2haa1/htISF/F+K5CU2Np6zFIzt/pnfmOgR+T9w1oSk8/yczB4uXV89EMpHjTgkBEgIJgYRAQoCEQEIgIZAQICGQEEgIJARICCQEEgIJgYQACYGE4DMScjEQWCbUermc6u1PjrzyjqQ5OaG++whVFx45slWEhFTEPRPKXE80E8zpCamIJyeUucrp+0ZU8qqoKuLSCTXtUVj9snX5otvM+irifglN6TtB5K9S37StpR8+JaEpvLx96Z+CWaVZHBdKaHA3QOYOeaVviW/rMBgwnJNQ671WO24ymdwWGp/4wUEJTeHBBPmEkhO2eP3kyvrhWgmNMIKRkITgvIRAQoCEQEIgIZAQICGQEEgIJASU/AGQabLsqabhhQAAAABJRU5ErkJggg==">
+  <link rel="alternate" href="atom.xml" type="application/atom+xml">
+  <!-- 站点验证相关 -->
+  
+    
+      <meta name="google-site-verification" content="fVGTHvD3aoZ4YyO3S4WbusH7mbbYHqxjGcH_2_yjfp4" />
+    
+    
+      <meta name="baidu-site-verification" content="code-0fihzGJtdx" />
+    
+    
+      <meta name="msvalidate.01" content="0BD48478F2FB17419C4A9364056B5B44" />
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('https://dev.krt.moe/demo-assets/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('https://dev.krt.moe/demo-assets/bg.webp');
+        }
+      }
+    
+  </style>
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                        
+                                            <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                        
+                                    
+                                        
+                                            <li><a target="_blank" rel="noopener" href="https://hlymcn.com/serve-csgo/index.html"><i class="fa fa-server"></i>csgo服务器</a></li>
+                                        
+                                    
+                                        
+                                            <li><a target="_blank" rel="noopener" href="https://hlymcn.com/svgedit/index.html"><i class="fa fa-reddit-alien"></i>svg工作台</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/friends/"><i class="fa fa-paw"></i>好伙伴</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/about/"><i class="fa fa-send"></i>关于我</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS订阅</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">彼方のE栈</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>彼方のE栈</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/06/25/hexoFrist/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Hexo初次使用体验</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2018-06-25T03:48:43.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2018-06-25</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">境界の彼方</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            549
+                        
+                        字
+                    </li>
+                
+                
+                    
+                        <li>
+                            <i class="fa fa-eye"></i>
+                            <span data-path="/2018/06/25/hexoFrist/" class="waline-pageview-count"> </span> 次阅读
+                        </li>
+                    
+                    
+                        <li>
+                            <i class="fa fa-commenting-o"></i>
+                            <span data-path="/2018/06/25/hexoFrist/" class="waline-comment-count"> </span> 条评论
+                        </li>
+                    
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1750642306712"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Node-js"><span class="toc-number">2.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85hexo"><span class="toc-number">3.</span> <span class="toc-text">安装hexo</span></a></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>虽然之前使用过wordpress搭建过博客，总体体验还（痛）行（苦）。之前看到很多人用hexo来搭建博客并且展示效果都挺好。于是今天来体验一把hexo的神奇。</p>
+<p>如何搭建基于hexo的个人博客：</p>
+<p>准备工作：</p>
+<pre><code>    Node、代码编辑器（推荐vscode 很好很强大）、浏览器（推荐谷歌 火狐 国内浏览器没测试不知道）
+</code></pre>
+<h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p>Hexo是基于node.js。Node.js下载地址：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">Download</a>。（安装时执行默认安装即可）。在安装时会进行环境变量以及npm的安装。安装完成后验证Node.js是否安装成功可以在控制台中执行 node –v</p>
+<p> <img src="data:image/*;base64,iVBORw0KGgoAAAANSUhEUgAAARYAAABSCAIAAAAekWzWAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACnklEQVR42u3dy0HjMBRAUQpwAfRLe97TDlviWE9Pkv85Z4fHJBnQTWTjz9f3z+8E9PqSEEgIJAQSAgkBEgIJgYRAQsBOCc3z7GcHLwnNrzoqWnxv/qHGSZqTE1oMwb6E+h7nshUd1j8SukRCO1VkiFBPqDpQSu/Hq3O5c4fgts8oIS6UUGlb633h/y/j9eNXFTzI6vO2vs6+mWHwknhsQk17FEqjuWn5otvM+nFFg6+n9dN1frP6HzT+Pj2h6tgqDcHkp1bfzCp4kMMS6nhtSKhhIld9t46ry8ziNk+odad//BPTz6MSGnyXzbzrBxOtkU356tPt9Ck0votCQk9OqPQ30yMnTlP7TvOm9TPLS9sw4wHo54EJTeE+onxCyQlbvH5y5Uw/wdES1ad4r2ir3WgSemZCxgRICO6ZEEgIkBBcMKG+PVHJwxFsaPHwhPpOgljtrW+PsGMx+biEtv0UkhAS6k/IsTDcI6Hq+Tndo38koT2OT4O9PoVGjpGTEBLqOVR014ScV8P9toVWNzzO2haa1/htISF/F+K5CU2Np6zFIzt/pnfmOgR+T9w1oSk8/yczB4uXV89EMpHjTgkBEgIJgYRAQoCEQEIgIZAQICGQEEgIJARICCQEEgIJgYQACYGE4DMScjEQWCbUermc6u1PjrzyjqQ5OaG++whVFx45slWEhFTEPRPKXE80E8zpCamIJyeUucrp+0ZU8qqoKuLSCTXtUVj9snX5otvM+irifglN6TtB5K9S37StpR8+JaEpvLx96Z+CWaVZHBdKaHA3QOYOeaVviW/rMBgwnJNQ671WO24ymdwWGp/4wUEJTeHBBPmEkhO2eP3kyvrhWgmNMIKRkITgvIRAQoCEQEIgIZAQICGQEEgIJASU/AGQabLsqabhhQAAAABJRU5ErkJggg=="></p>
+<p>验证npm是否安装完成 输入命令：npm –v</p>
+<p> <img src="data:image/*;base64,iVBORw0KGgoAAAANSUhEUgAAAQcAAABSCAIAAADW/YYAAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADOElEQVR42u3dv2oUQQDA4XTmktsUFmJvYv5IwMLeTgRfQBQEu2BjZymIIGKVlKKN73O9ryNRkOxmZ3Zmdi+5ufu+7o6988D53c7sZXe3tpuD+59/z/MtFos5rKOtq1Us2grC6Lw2/a3GUynTVTHf/1dFZ1SVVVH2PsJAFcKghioGB1NoItQ7ibrdYSoMaqoitG65/uTVh/Ht458q9Cad50PvXLwoin9+Vr2KO7sPUqrIWnCHBmjW850hm7J9PIzI86ENUnY+oYp635O12lekh5E4+hP3LWUTpMibpFeaWEXBZ2Dlq/h7ZPYGquidKUW+a+MhpUyfbreK/y+URH1VzJqHxcegsr6bIzOcMevmwX9OFUxTRejnuaXOWMpmUMXbT7WuyF13Uc0M6vqRk+IqEmdK8e0TN05JInJoK3IMqnOcShWbW8UY1f33G68Mz6A2apD5DYGbqALMoEAVsIFVlP39T+7s3GyeyqooXmGnJ1Tj0hxVZCdRtr0wUIUqqHxdkT7Ki0/yVgWV7SsSR3nWS1RBNVW8efu+98js5KNcFVRTxY+fv1QBrSrOL76XnV+hCta2ii9fz+PrishievB86ND2kqCOKuaBA0qDZ1b0nqKQuEaH1aziwt9BgSogeQYFXFbx8dM3VUCrirN3H1QBrSpevjpTBbSqeP7itSqgVcXjJ89UAa0qjk+fqgJaVdy9d6oKaFWxs+d6UNCt4lAVYF8B9hWQVcWsOVIFdKo4VgW0Z1DNI1VAq4rdPb9XQLcK+wpQBQxVcVJWhYsSsBFV5N6/InQD4t57li6bSpmwiqPiu9Dn3g9bGNRRxU6zPlUIg6mquFxtp1wPM6WB+QpcOVMY1FRFaN1y/cmrD+PbJ34qmL6KrAV378Pc5zsppmwvDKapYtacjKlicJgOXnE5XkXZcJcEdVQxD9xkLHJH40hIpk8scwY14shsyhf8mKv2u90eK1RF6Oe5MVWUrSvGz7igoIrD+P0rcqtInCnFt0/cWBIsqYppzts2KFmn1bYqYDlVgCpAFaAKUAWgClAFqAJUAVNV4Ur9oAowgwJVgCpg6iq2mwNVgCogXsV8XxVgXwGqAFXAGH8AVui2A+9OzVcAAAAASUVORK5CYII="></p>
+<p>Hexo环境搭建已经完成，开始安装hexo</p>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>Hexo是我们搭建个人博客的框架。Hexo为我们提供了安装脚手架，因此我们只需要全局安装脚手架即可：</p>
+<p>使用npm命令安装hexo：（不支持yarn命令安装）</p>
+<p> <img src="data:image/*;base64,iVBORw0KGgoAAAANSUhEUgAAArEAAAAuCAIAAACwF9bFAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADRUlEQVR42u3b2Y3iQBQF0I7D2aHOBhEIHQiEgUQSI/GBaC+4XGWXzdYwLOd8MTSLXR7pXj+brwMAwOHwZQkAgK4T7Pf73W73DwD4SGUN+GoKgbUAgA9XdQITAgCg6gRWAQDQCQAAnQAA0AkAAJ0AANAJAACdAADQCQAAnQAA0AkAAJ0AANAJAACdAADQCQCAl+4Em+WsKIr56oFfuVoUjdlyM9iSyuKBW7NdfheL9fP8xxhZnOZv8/zzAOgET9MJqg+5NMjL8MvF2zUf9U6dYGpxdAIAneDp6QQP6QQAfG4n2P7MZj/b+uywHqmvQ4yVgRGGzG2CrhfFfFkmXHUqua7P/r+X2+nkaT+5/JY0kBarMMlPPiR8aXg+emY49F53fxzk7v06QW+TpsO16QSDxUw/p1ufeo+iAxGtT3ft48y5S/32/OWSweL8nwsrADxTJwiBVD0+xs/2GPybNtebBGrjqk76MjnOPdcsXz/oBCF7qschzgevnA7y1SJEY7Vtp2LvjzpBtyB1jp6aAcSLWT1udzB+nCxCfVCqLYyOSO811eP8QvW+d7Q6PMkQBYCn6gQhNro8SMfdZdw2ydQ+aJP7lk7QvTH+axW32dnD6awabsydYi/O5jjXp+cEgwUvNyPa0+RAHNdkGW9/2g+igzImU5J0AgCd4PZO0Dx//04Qj7uT8++RrArXJnIz/NtjL569p/P8bk5wcgVGOsF6cEkkOafvTwJ6pSHuBPEihLf0O4ROAKATvNacIA2naBtyWRVm7I+dE+Qz+JpOMJrZ3S0IyRt7c4WTcwKdAIA/7QTRCesjO0F6iX3wz34u5n5Ed5/Yu/jtI51g/J6Abr/i+X9SkjKrkV3A8cqiEwDoBGd3giJ7S/xlnaD/k4HolrpsJ0he38+zbtge3hvftx9dfe+P5Y/PNzdURq4Mv/SCxbX3Ewz2t3lNvZFhB5sDkdSCs+cTvc+Pfjxyz8UB4FU7wTkxxtSZ9Fm3FACATvB+0vv503saAEAn+CTptQOFAIB37gQAgE4AAOgEAIBOAADoBACATgAA6AQAgE4AAOgEAIBOAADoBADAZ3aC3W5nIQBAJzjs93sLAQA6waGpBaYFAPCxyhrwC7CCP81tFoJ7AAAAAElFTkSuQmCC"></p>
+<p>脚手架安装完成后，对hexo进行初始化：</p>
+<p> <img src="data:image/*;base64,iVBORw0KGgoAAAANSUhEUgAAAq4AAAAqCAIAAAD9I062AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACa0lEQVR42u3c6W2DMBgG4M7BdlG3qRiEDkLGqMQS/d3YCT44EtJDzfE8vwiHOVTpe21MXz4BgCf24hEAgCgAAIgCAIAoAACIAgCAKAAAiAIAgCgAAIgCAIAoAACIAgCAKAAAiAIAgCgAADxuFBjed81b/z+X9tHtmmb72cOlNk27//4JV2/2eCVB2/uTAUAUuKcoEBrZWr8v3Ow1TQGAKHAbRAEA+HkU6N/G8fHc5x6619PKXD5jP373Phx/xaNS7ezbcffmtRsuXVY6Y2ptbKTt03B9bic1vus+yp0nyq1X3exqFEg7nz31hfMCwG1HgbEeh+Wx+oYSeEoAIRPkgr1vT5UvLKTCWe4TM8S2kYbDWWZRIMWLsFxX68OaWdG9dlQghY/q+pebKh9IPPa0NT+cmFp+Mn0BAG5iVGBWC2PvPO10qJpFRz8e0h3qfS6Bk7K6uTwvRYFc7M9v/WYUyBllFjWmTU12GMZbLtfXOQkAHiQK5Bn1i2P+s35/nRXuJAoMVZpZjgLl6dL+xe2HQ7wdAOAxo8BqfY0Vup+9NahHEe5jVKBu7cKoQP5ZTCAwJADAQ0aBM+/7U5mvOsShTJZzBTYWyF+IAgtTCjbdbDkPYC1VhJJfzhU4LvvQAIAniAKf1RcE1VS7XHdj57hKA9MvDtYzwGTy/1jyV6LAvj33pUDeuuELgqVXHtX6+h8NFQMAiysNDABw51GAq01GBUwXAEAUeC71TIjyI0MAEAWeQv2CQA4AQBQAAEQBAEAUAABEAQBAFAAARAEAQBQAAEQBAEAUAABEAQBAFAAARAEAQBQAAEQBAOCPfAGzakj2yH+ZIQAAAABJRU5ErkJggg=="></p>
+<p>Blog为初始化时所创建的文件夹。进入到你所创建的文件夹；</p>
+<p>查看我们所搭建的hexo博客的雏形可以执行以下命令：</p>
+<p> <img src="data:image/*;base64,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"></p>
+<p>输入完这些命令后，打开浏览器在地址栏中输入：localhost:4000 即可在本地查看你搭建博客。</p>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2018/06/25/hexoFrist/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2018/06/25/hexoFrist/";
+            const title         = "「Hexo初次使用体验」";
+            const excerpt       = `前言虽然之前使用过wordpress搭建过博客，总体体验还（痛）行（苦）。之前看到很多人用hexo来搭建博客并且展示效果都挺好。于是今天来体验一把hexo的神奇。
+如何搭建基于hexo的个人博客：
+准备工作：
+    Node、代码编...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/JavaScript%E6%8A%80%E6%9C%AF/" rel="tag">JavaScript技术</a>, <a class="tag-none-link" href="/tags/hexo/" rel="tag">hexo</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2025-06-23T01:31:46.712Z" itemprop="dateModified">最后编辑：2025-06-23</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" Hello World" href="/2018/06/02/hello-world/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" Nuxt初识" href="/2018/07/20/nuxt/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+        <div id="w-comments" class="post-comments"></div>
+<link rel="stylesheet" href="/vendors/@waline/client@2.14.1/dist/waline.css" />
+<script>
+    var load_comm = () => {
+        const init = () => {
+            Waline.init(Object.assign({
+                el: '#w-comments',
+                path: '/2018/06/25/hexoFrist/',
+                dark: 'html[data-theme="dark"]',
+            }, JSON.parse('{"serverURL":"https://myblog-api-hazel.vercel.app","comment":true,"pageview":true}')));
+        }
+        if (typeof Waline === 'undefined') {
+            const src = '/vendors/@waline/client@2.14.1/dist/waline.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
+
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="https://greenhaha.oss-cn-beijing.aliyuncs.com/frontend/assets/header/header.png" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">一个从躺平状态站起来并开始折腾自己二次元开发者</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                60
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                7
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                50
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Node-js"><span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85hexo"><span class="toc-text">安装hexo</span></a></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%A8%E6%96%B0%E4%BD%93%E9%AA%8C/">全新体验</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%A4%A7%E5%85%A8/">工具大全</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%A1%A3%E6%95%99%E7%A8%8B/">文档教程</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%89%96%E6%9E%90/">知识剖析</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/">规范总结</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E5%88%92%E6%80%BB%E7%BB%93/">计划总结</a><span class="category-list-count">3</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/2023/" style="font-size: 0.6em;">2023</a> <a href="/tags/API/" style="font-size: 0.6em;">API</a> <a href="/tags/CSS/" style="font-size: 0.64em;">CSS</a> <a href="/tags/ELM/" style="font-size: 0.64em;">ELM</a> <a href="/tags/EME/" style="font-size: 0.6em;">EME</a> <a href="/tags/HTML/" style="font-size: 0.68em;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 0.8em;">JavaScript</a> <a href="/tags/JavaScript%E6%8A%80%E6%9C%AF/" style="font-size: 0.6em;">JavaScript技术</a> <a href="/tags/Node/" style="font-size: 0.76em;">Node</a> <a href="/tags/React/" style="font-size: 0.68em;">React</a> <a href="/tags/ReactNative/" style="font-size: 0.72em;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 0.6em;">TypeScript</a> <a href="/tags/Vue/" style="font-size: 0.6em;">Vue</a> <a href="/tags/chromeAPI/" style="font-size: 0.6em;">chromeAPI</a> <a href="/tags/express/" style="font-size: 0.64em;">express</a> <a href="/tags/express-session/" style="font-size: 0.6em;">express-session</a> <a href="/tags/git/" style="font-size: 0.6em;">git</a> <a href="/tags/google/" style="font-size: 0.6em;">google</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2025/06/23/2025%E5%B9%B4%E6%80%BB%E7%BB%93/"><i class="fa  fa-book"></i> 2025年年中总结</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/02/19/jest(1)/"><i class="fa  fa-book"></i> Jest 测试工具（1）</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/21/%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95/"><i class="fa  fa-book"></i> 加密媒体扩展</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/20/CDN%E5%8F%8APCDN/"><i class="fa  fa-book"></i> CDN与PCDN</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/14/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%90%8C%E6%AD%A5%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/"><i class="fa  fa-book"></i> 音视频同步原理及实现</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        <li><a href="mailto:a15114101085@aliyun.com"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/greenhaha"><i class="fa fa-github"></i></a></li>
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2025 彼方のE栈 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 境界の彼方.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">辽ICP备19004490号-2</a></li>
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

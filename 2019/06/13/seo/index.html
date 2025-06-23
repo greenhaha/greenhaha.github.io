@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>SEO优化（一） | 彼方のE栈</title>
+  
+  <meta name="author" content="境界の彼方" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="HTML, google, seo, web前端, 技术, 百度" />
+  
+  <meta name="description" content="Seo 俗称 Search Engine Optimization 检索引擎优化。利用搜索引擎规则来提高网站在有关搜索引擎内的自然排名。其目的时为网站引入更多流量，提高网站的曝光度。目前主要的搜索引擎有：google（谷歌 注：众所周知原因使用前需要自备梯子），Baidu（百度），Bing（必应）等。对于国内 360搜索 以及 搜狗搜索 不做描述。Seo本身涉及的范围很广。针对seo的优化也是一门">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEO优化（一）">
+<meta property="og:url" content="http://example.com/2019/06/13/seo/index.html">
+<meta property="og:site_name" content="彼方のE栈">
+<meta property="og:description" content="Seo 俗称 Search Engine Optimization 检索引擎优化。利用搜索引擎规则来提高网站在有关搜索引擎内的自然排名。其目的时为网站引入更多流量，提高网站的曝光度。目前主要的搜索引擎有：google（谷歌 注：众所周知原因使用前需要自备梯子），Baidu（百度），Bing（必应）等。对于国内 360搜索 以及 搜狗搜索 不做描述。Seo本身涉及的范围很广。针对seo的优化也是一门">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-06-13T02:30:53.000Z">
+<meta property="article:modified_time" content="2025-06-23T01:31:46.717Z">
+<meta property="article:author" content="境界の彼方">
+<meta property="article:tag" content="seo">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="web前端">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="google">
+<meta property="article:tag" content="百度">
+<meta name="twitter:card" content="summary">
+  <link rel="alternate" href="atom.xml" type="application/atom+xml">
+  <!-- 站点验证相关 -->
+  
+    
+      <meta name="google-site-verification" content="fVGTHvD3aoZ4YyO3S4WbusH7mbbYHqxjGcH_2_yjfp4" />
+    
+    
+      <meta name="baidu-site-verification" content="code-0fihzGJtdx" />
+    
+    
+      <meta name="msvalidate.01" content="0BD48478F2FB17419C4A9364056B5B44" />
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('https://dev.krt.moe/demo-assets/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('https://dev.krt.moe/demo-assets/bg.webp');
+        }
+      }
+    
+  </style>
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                        
+                                            <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                        
+                                    
+                                        
+                                            <li><a target="_blank" rel="noopener" href="https://hlymcn.com/serve-csgo/index.html"><i class="fa fa-server"></i>csgo服务器</a></li>
+                                        
+                                    
+                                        
+                                            <li><a target="_blank" rel="noopener" href="https://hlymcn.com/svgedit/index.html"><i class="fa fa-reddit-alien"></i>svg工作台</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/friends/"><i class="fa fa-paw"></i>好伙伴</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/about/"><i class="fa fa-send"></i>关于我</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS订阅</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">彼方のE栈</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>彼方のE栈</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/06/13/seo/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">SEO优化（一）</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2019-06-13T02:30:53.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2019-06-13</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">境界の彼方</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~1.65K
+                        
+                        字
+                    </li>
+                
+                
+                    
+                        <li>
+                            <i class="fa fa-eye"></i>
+                            <span data-path="/2019/06/13/seo/" class="waline-pageview-count"> </span> 次阅读
+                        </li>
+                    
+                    
+                        <li>
+                            <i class="fa fa-commenting-o"></i>
+                            <span data-path="/2019/06/13/seo/" class="waline-comment-count"> </span> 条评论
+                        </li>
+                    
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1750642306717"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TDK%E4%BC%98%E5%8C%96%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">TDK优化：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Title%E4%BC%98%E5%8C%96"><span class="toc-number">1.1.</span> <span class="toc-text">Title优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Description%E4%BC%98%E5%8C%96"><span class="toc-number">1.2.</span> <span class="toc-text">Description优化</span></a></li></ol></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><p>Seo 俗称 <strong>Search Engine Optimization</strong> 检索引擎优化。利用搜索引擎规则来提高网站在有关搜索引擎内的自然排名。其目的时为网站引入更多流量，提高网站的曝光度。目前主要的搜索引擎有：google（谷歌 注：众所周知原因使用前需要自备梯子），Baidu（百度），Bing（必应）等。对于国内 360搜索 以及 搜狗搜索 不做描述。Seo本身涉及的范围很广。针对seo的优化也是一门学问。本文只要是总结我在开发中遇到的seo相关问题。</p>
+<h1 id="TDK优化："><a href="#TDK优化：" class="headerlink" title="TDK优化："></a>TDK优化：</h1><p>T：<code>title</code>  D: <code>description</code>  K: <code>keywords</code>   title是最有用的，也是最值得优化的。description 中的内容会直接反映到搜索的介绍中，对于用户的判断是否点击本条信息还是非常有效的。然而， 对于keyword 由于开发人员的过度使用。对于keyword的优化基本上对搜索引擎没有用了。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/52990984">更多原因</a>。</p>
+<h2 id="Title优化"><a href="#Title优化" class="headerlink" title="Title优化"></a>Title优化</h2><p>Title的分隔符一般有 &#39;,&#39; 、&#39;_&#39; 、&#39;-&#39; 等。其中&#39;_&#39;对百度比较友好，&#39;-&#39;对于谷歌比较友好。title中的空格对于英文站点相对友好，中文少用。Title的长度对于pc端来说，大概25到30中文。而移动端为15到20中文。超出最大字数部分会进行省略表示。</p>
+<p>百度搜索引擎优化建议：</p>
+<p>Title格式：</p>
+<ul>
+<li>首页：网站名称 或者 网站名称_提供服务介绍or产品介绍</li>
+<li>频道页：频道名称_网站名称</li>
+<li>文章页：文章title_频道名称_网站名称</li>
+</ul>
+<p>如果你的文章标题不是很长，还可以加入点关键词进去，如文章title_关键词_网站名称</p>
+<p>谷歌搜索引擎优化建议：</p>
+<ul>
+<li>创建描述性网页标题。确保在 &amp;lt;title&amp;gt; 标记中为您网站上的每个网页分别指定一个标题。</li>
+<li>页面标题应具有描述性并且简明扼要。要避免不明确的描述。</li>
+<li>避免关键字的堆砌。过多的关键字堆砌会导致google和用户将结果视为垃圾内容</li>
+<li>避免重复或样板标题。每个页面应该保持title的独特性描述。</li>
+<li>给你的标题加上品牌。考虑在每个网页标题的开头或末尾仅添加网站名称，并用连字符、冒号或竖线等分隔符将其与标题的其余部分隔开，类似这样：&amp;lt;title&amp;gt;ExampleSocialSite：注册新帐户&amp;lt;/title&amp;gt;</li>
+<li>禁止搜索引擎爬取问题</li>
+</ul>
+<p>推荐做法：</p>
+<ul>
+<li>每个网页应该有一个独一无二的标题，切忌所有的页面都使用同样的默认标题</li>
+<li>标题要主题明确，包含这个网页中最重要的内容</li>
+<li>简明精练，不罗列与网页内容不相关的信息</li>
+<li>用户浏览通常是从左到右的，重要的内容应该放到title的靠前的位置</li>
+<li>使用用户所熟知的语言描述。如果你有中、英文两种网站名称，尽量使用用户熟知的那一种做为标题描述</li>
+</ul>
+<h2 id="Description优化"><a href="#Description优化" class="headerlink" title="Description优化"></a>Description优化</h2><p>Description 不是<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/75ea2a7ba2ce">网站权值</a>计算的考虑因素。这个标签的存在与否不影响页面权值。只会在搜索结果展示出一个选择目标。Pc端长度70到80文字，移动端为50字。超出部分会截取省略表示。</p>
+<p>百度搜索引擎优化建议：</p>
+<ul>
+<li>网站首页、频道页、产品参数页等没有大段文字可以用做摘要的网页最适合使用description</li>
+<li>准确的描述网页，不要堆砌关键词</li>
+<li>为每个网页创建不同的description，避免所有网页都使用同样的描述</li>
+<li>长度合理，不过长不过短</li>
+</ul>
+<p>下面以百度推荐的两个例子为对比，第一个没有应用meta description，第二个应用了meta description，可以看出第一个结果的摘要对用户基本没有参考价值，第二个结果的摘要更具可读性，可以让用户更了解网站的内容。</p>
+<p>谷歌搜索引擎优化：</p>
+<ul>
+<li>确保您网站上的每个网页都有元描述</li>
+<li>为不同网页创建不同的描述。</li>
+<li>在描述中包含清楚标记的信息。</li>
+<li>以程序化的方式生成描述</li>
+<li>使用高质量的描述。</li>
+</ul>
+<p>部分内容摘录自 google console 文档 </p>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2019/06/13/seo/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2019/06/13/seo/";
+            const title         = "「SEO优化（一）」";
+            const excerpt       = `Seo 俗称 Search Engine Optimization 检索引擎优化。利用搜索引擎规则来提高网站在有关搜索引擎内的自然排名。其目的时为网站引入更多流量，提高网站的曝光度。目前主要的搜索引擎有：google（谷歌 注：众所周...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/HTML/" rel="tag">HTML</a>, <a class="tag-none-link" href="/tags/google/" rel="tag">google</a>, <a class="tag-none-link" href="/tags/seo/" rel="tag">seo</a>, <a class="tag-none-link" href="/tags/web%E5%89%8D%E7%AB%AF/" rel="tag">web前端</a>, <a class="tag-none-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a>, <a class="tag-none-link" href="/tags/%E7%99%BE%E5%BA%A6/" rel="tag">百度</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2025-06-23T01:31:46.717Z" itemprop="dateModified">最后编辑：2025-06-23</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 前端代码规范" href="/2019/06/05/前端代码规范/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" React 16 新特性 error Boundary" href="/2019/06/18/react16新特性/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+        <div id="w-comments" class="post-comments"></div>
+<link rel="stylesheet" href="/vendors/@waline/client@2.14.1/dist/waline.css" />
+<script>
+    var load_comm = () => {
+        const init = () => {
+            Waline.init(Object.assign({
+                el: '#w-comments',
+                path: '/2019/06/13/seo/',
+                dark: 'html[data-theme="dark"]',
+            }, JSON.parse('{"serverURL":"https://myblog-api-hazel.vercel.app","comment":true,"pageview":true}')));
+        }
+        if (typeof Waline === 'undefined') {
+            const src = '/vendors/@waline/client@2.14.1/dist/waline.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
+
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="https://greenhaha.oss-cn-beijing.aliyuncs.com/frontend/assets/header/header.png" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">一个从躺平状态站起来并开始折腾自己二次元开发者</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                60
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                7
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                50
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TDK%E4%BC%98%E5%8C%96%EF%BC%9A"><span class="toc-text">TDK优化：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Title%E4%BC%98%E5%8C%96"><span class="toc-text">Title优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Description%E4%BC%98%E5%8C%96"><span class="toc-text">Description优化</span></a></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%A8%E6%96%B0%E4%BD%93%E9%AA%8C/">全新体验</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%A4%A7%E5%85%A8/">工具大全</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%A1%A3%E6%95%99%E7%A8%8B/">文档教程</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%89%96%E6%9E%90/">知识剖析</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/">规范总结</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E5%88%92%E6%80%BB%E7%BB%93/">计划总结</a><span class="category-list-count">3</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/2023/" style="font-size: 0.6em;">2023</a> <a href="/tags/API/" style="font-size: 0.6em;">API</a> <a href="/tags/CSS/" style="font-size: 0.64em;">CSS</a> <a href="/tags/ELM/" style="font-size: 0.64em;">ELM</a> <a href="/tags/EME/" style="font-size: 0.6em;">EME</a> <a href="/tags/HTML/" style="font-size: 0.68em;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 0.8em;">JavaScript</a> <a href="/tags/JavaScript%E6%8A%80%E6%9C%AF/" style="font-size: 0.6em;">JavaScript技术</a> <a href="/tags/Node/" style="font-size: 0.76em;">Node</a> <a href="/tags/React/" style="font-size: 0.68em;">React</a> <a href="/tags/ReactNative/" style="font-size: 0.72em;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 0.6em;">TypeScript</a> <a href="/tags/Vue/" style="font-size: 0.6em;">Vue</a> <a href="/tags/chromeAPI/" style="font-size: 0.6em;">chromeAPI</a> <a href="/tags/express/" style="font-size: 0.64em;">express</a> <a href="/tags/express-session/" style="font-size: 0.6em;">express-session</a> <a href="/tags/git/" style="font-size: 0.6em;">git</a> <a href="/tags/google/" style="font-size: 0.6em;">google</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2025/06/23/2025%E5%B9%B4%E6%80%BB%E7%BB%93/"><i class="fa  fa-book"></i> 2025年年中总结</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/02/19/jest(1)/"><i class="fa  fa-book"></i> Jest 测试工具（1）</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/21/%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95/"><i class="fa  fa-book"></i> 加密媒体扩展</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/20/CDN%E5%8F%8APCDN/"><i class="fa  fa-book"></i> CDN与PCDN</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/14/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%90%8C%E6%AD%A5%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/"><i class="fa  fa-book"></i> 音视频同步原理及实现</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        <li><a href="mailto:a15114101085@aliyun.com"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/greenhaha"><i class="fa fa-github"></i></a></li>
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2025 彼方のE栈 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 境界の彼方.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">辽ICP备19004490号-2</a></li>
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>

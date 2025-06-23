@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+  
+  <title>加密媒体扩展 | 彼方のE栈</title>
+  
+  <meta name="author" content="境界の彼方" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="EME, 流媒体, 直播" />
+  
+  <meta name="description" content="加密媒体扩展(Encrypted Media Extensions)介绍加密媒体扩展（Encrypted Media Extensions）提供了一种 API，可以使 Web 应用程序与内容保护系统进行交互，以允许播放加密的音频和视频。EME 旨在使相同的应用程序和加密文件在任何浏览器中使用，而不管底层保护系统如何。前者是通过标准化的 API 和流程实现的，而后者通过通用加密的概念成为可能 。EM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="加密媒体扩展">
+<meta property="og:url" content="http://example.com/2024/01/21/%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95/index.html">
+<meta property="og:site_name" content="彼方のE栈">
+<meta property="og:description" content="加密媒体扩展(Encrypted Media Extensions)介绍加密媒体扩展（Encrypted Media Extensions）提供了一种 API，可以使 Web 应用程序与内容保护系统进行交互，以允许播放加密的音频和视频。EME 旨在使相同的应用程序和加密文件在任何浏览器中使用，而不管底层保护系统如何。前者是通过标准化的 API 和流程实现的，而后者通过通用加密的概念成为可能 。EM">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2024/01/21/%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95/https:/greenhaha.oss-cn-beijing.aliyuncs.com/frontend/assets/img/eme.avif">
+<meta property="article:published_time" content="2024-01-21T02:11:51.000Z">
+<meta property="article:modified_time" content="2025-06-23T01:31:46.724Z">
+<meta property="article:author" content="境界の彼方">
+<meta property="article:tag" content="流媒体">
+<meta property="article:tag" content="直播">
+<meta property="article:tag" content="EME">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/01/21/%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95/https:/greenhaha.oss-cn-beijing.aliyuncs.com/frontend/assets/img/eme.avif">
+  <link rel="alternate" href="atom.xml" type="application/atom+xml">
+  <!-- 站点验证相关 -->
+  
+    
+      <meta name="google-site-verification" content="fVGTHvD3aoZ4YyO3S4WbusH7mbbYHqxjGcH_2_yjfp4" />
+    
+    
+      <meta name="baidu-site-verification" content="code-0fihzGJtdx" />
+    
+    
+      <meta name="msvalidate.01" content="0BD48478F2FB17419C4A9364056B5B44" />
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('https://dev.krt.moe/demo-assets/banner.webp');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('https://dev.krt.moe/demo-assets/bg.webp');
+        }
+      }
+    
+  </style>
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                    
+                                        
+                                            <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                        
+                                    
+                                        
+                                            <li><a target="_blank" rel="noopener" href="https://hlymcn.com/serve-csgo/index.html"><i class="fa fa-server"></i>csgo服务器</a></li>
+                                        
+                                    
+                                        
+                                            <li><a target="_blank" rel="noopener" href="https://hlymcn.com/svgedit/index.html"><i class="fa fa-reddit-alien"></i>svg工作台</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/friends/"><i class="fa fa-paw"></i>好伙伴</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/about/"><i class="fa fa-send"></i>关于我</a></li>
+                                        
+                                    
+                                        
+                                            <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS订阅</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">彼方のE栈</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>彼方のE栈</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/21/%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">加密媒体扩展</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2024-01-21T02:11:51.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-01-21</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">境界の彼方</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~3.08K
+                        
+                        字
+                    </li>
+                
+                
+                    
+                        <li>
+                            <i class="fa fa-eye"></i>
+                            <span data-path="/2024/01/21/%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95/" class="waline-pageview-count"> </span> 次阅读
+                        </li>
+                    
+                    
+                        <li>
+                            <i class="fa fa-commenting-o"></i>
+                            <span data-path="/2024/01/21/%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95/" class="waline-comment-count"> </span> 条评论
+                        </li>
+                    
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1750642306724"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95-Encrypted-Media-Extensions"><span class="toc-number">1.</span> <span class="toc-text">加密媒体扩展(Encrypted Media Extensions)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EME-%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">EME 如何工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%86-CDM-%E7%A9%B6%E7%AB%9F%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">但 CDM 究竟做了什么呢？</span></a></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><h1 id="加密媒体扩展-Encrypted-Media-Extensions"><a href="#加密媒体扩展-Encrypted-Media-Extensions" class="headerlink" title="加密媒体扩展(Encrypted Media Extensions)"></a>加密媒体扩展(Encrypted Media Extensions)</h1><h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>加密媒体扩展（Encrypted Media Extensions）提供了一种 API，可以使 Web 应用程序与内容保护系统进行交互，以允许播放加密的音频和视频。<br><br>EME 旨在使相同的应用程序和加密文件在任何浏览器中使用，而不管底层保护系统如何。前者是通过标准化的 API 和流程实现的，而后者通过通用加密的概念成为可能 。<br><br>EME 是 HTMLMediaElement 规范的扩展，因此取名。作为“扩展”意味着浏览器对 EME 的支持是可选的：如果浏览器不支持加密的媒体，它将无法播放加密的媒体，但是 EME 不符合 HTML 规范。从 EME 规范：<br></p>
+<blockquote>
+<p>该提案扩展了 HTMLMediaElement， 提供了 API 来控制受保护内容的播放。</p>
+</blockquote>
+<p>API 支持从简单的清除密钥解密到高价值视频（给定适当的用户代理实现）的用例。许可证/密钥交换由应用程序控制，便于开发支持一系列内容解密和保护技术的强大的回放应用程序。<br><br>本规范未定义内容保护或数字版权管理系统。相反，它定义了可以用于发现，选择和与这样的系统以及更简单的内容加密系统交互的通用 API。数字版权管理的实施不符合本规范要求：只有 Clear Key 系统才能被实现为一个共同的基准。<br><br>通用 API 支持一组简单的内容加密功能，将页面作者的身份验证和授权等应用程序功能留下。这是通过要求内容保护系统特定的消息传递由页面介导而不是假设加密系统与许可证或其他服务器之间的带外通信来实现的。<br><br>EME 实现使用以下外部组件：</p>
+<ul>
+<li>关键系统：内容保护（DRM）机制。EME 没有定义密钥系统本身，除了清除键（更多关于<a target="_blank" rel="noopener" href="https://web.dev/media-eme/#clear_key">下文</a>）。</li>
+<li>内容解密模块（CDM）：支持加密媒体播放的客户端软件或硬件机制。与 Key Systems 一样，EME 还没有定义任何 CDM，而是为应用程序提供了与可用 CDM 进行交互的界面。</li>
+<li>许可证（Key）服务器：与 CDM 进行交互以提供解密媒体的密钥。许可证服务器的协商是应用程序的责任。</li>
+<li>包装服务：编码和加密媒体进行分发/消费。</li>
+</ul>
+<p>请注意，使用 EME 的应用程序与许可证服务器交互以获取密钥以启用解密，但用户身份和身份验证不是 EME 的一部分。在可选地验证用户之后，检索启用媒体播放的键。Netflix 等服务必须对其 Web 应用程序中的用户进行身份验证：用户登录应用程序时，应用程序将确定用户的身份和权限。<br></p>
+<h1 id="EME-如何工作"><a href="#EME-如何工作" class="headerlink" title="EME 如何工作"></a>EME 如何工作</h1><blockquote>
+<p>如果有多种格式或编解码器可用，则 MediaSource.isTypeSupported（）或 HTMLMediaElement.canPlayType（） 都可用于选择正确的格式 。但是，CDM 可能只支持浏览器支持未加密内容的一部分。最好在选择格式和编解码器之前协商 MediaKeys 配置。如果应用程序等待加密的事件，但是 MediaKeys 显示它无法处理所选的格式/编解码器，那么在不中断播放的情况下切换可能太晚了。<br><br>推荐的流程是首先使用 MediaKeysSystemAccess.getConfiguration（）来协商 MediaKey，以查找协商的配置。<br><br>如果只有一种格式/编解码器可供选择，那么不需要 getConfiguration（）。但是，最好先建立 MediaKeys。等待加密事件的唯一原因是，如果没有办法知道内容是否被加密，但实际上不太可能。··</p>
+</blockquote>
+<ol>
+<li>Web 应用程序尝试播放具有一个或多个加密流的音频或视频。</li>
+<li>浏览器会识别媒体是否被加密（请参阅下面的框），并触发加密事件，从媒体获取有关加密的元数据（initData）。</li>
+<li>应用程序处理加密事件：<ol>
+<li>如果没有 MediaKeys 对象已经与媒体元素相关联，首先使用 navigator.requestMediaKeySystemAccess（）来检查可用的密钥系统，然后通过 MediaKeySystemAccess 对象为可用密钥系统创建一个 MediaKeys 对象。请注意，MediaKeys 对象的初始化应该发生在第一个加密事件之前。获取许可证服务器 URL 是由应用程序完成的，而不是选择可用的密钥系统。MediaKeys 对象表示可用于解密音频或视频元素的媒体的所有键。它代表 CDM 实例，并提供对 CDM 的访问，专门用于创建密钥会话，用于从许可证服务器获取密钥。</li>
+<li>MediaKeys 对象创建完成后，将其分配给媒体元素：setMediaKeys（）将 MediaKeys 对象与 HTMLMediaElement 相关联，从而可以在播放过程中使用它的键，即在解码过程中。</li>
+</ol>
+</li>
+<li>该应用程序通过在 MediaKeys 上调用 createSession（）创建一个 MediaKeySession。这将创建一个 MediaKeySession，它表示许可证的生命周期及其密钥。</li>
+<li>通过在 MediaKeySession 上调用 generateRequest（），通过将加密处理程序中获取的媒体数据传递给 CDM 来生成许可证请求。</li>
+<li>CDM 触发消息事件：从许可证服务器获取密钥的请求。</li>
+<li>MediaKeySession 对象接收消息事件，应用程序向许可证服务器发送消息（例如，通过 XHR）。</li>
+<li>应用程序从许可证服务器接收响应，并使用 MediaKeySession 的 update（）方法将数据传递给 CDM。</li>
+<li>CDM 使用许可证中的密钥解密媒体。可以使用与媒体元素相关联的 MediaKey 中的任何会话的有效密钥。CDM 将访问按密钥 ID 索引的密钥和策略。</li>
+</ol>
+<p>媒体播放恢复。</p>
+<blockquote>
+<p>浏览器如何知道媒体是否被加密？<br>该信息在媒体容器文件的元数据中，其格式为 ISO BMFF 或 WebM。对于 ISO BMFF，这意味着标题元数据，称为保护方案信息框。WebM 使用 Matroska ContentEncryption 元素，并添加了特定的 WebM。为 EME 特定的注册表中的每个容器提供了指南。</p>
+</blockquote>
+<p>请注意，CDM 和许可证服务器之间可能存在多条消息，并且此过程中的所有通信对于浏览器和应用程序都是不透明的：消息仅由 CDM 和许可证服务器理解，尽管应用层可以看到 CDM 正在发送 什么类型的消息 。许可证请求包含 CDM 的有效性（和信任关系）的证明，以及在生成的许可证中加密内容密钥时使用的密钥。<br></p>
+<h1 id="但-CDM-究竟做了什么呢？"><a href="#但-CDM-究竟做了什么呢？" class="headerlink" title="但 CDM 究竟做了什么呢？"></a>但 CDM 究竟做了什么呢？</h1><p>EME 实现本身不提供解密媒体的方法：它只是为 Web 应用程序提供一个 API，以便与内容解密模块进行交互。<br><br>CDM 实际上做了什么不是由 EME 规范定义的，CDM 可以处理媒体的解码（解压缩）以及解密。从至少到最强大的，CDM 功能有几个潜在的选择：</p>
+<ul>
+<li>仅解密，使用普通媒体流水线进行播放，例如通过<code>&lt;video&gt;</code>元素进行播放。</li>
+<li>解密和解码，将视频帧传递到浏览器进行渲染。</li>
+<li>解密和解码，直接在硬件中渲染（例如，GPU）。</li>
+</ul>
+<p>可以通过多种方法使 CDM 可用于 Web 应用程序：</p>
+<ul>
+<li>用浏览器捆绑 CDM。</li>
+<li>分发 CDM。</li>
+<li>在操作系统中构建 CDM。</li>
+<li>在固件中加入 CDM。</li>
+<li>将 CDM 嵌入硬件。</li>
+</ul>
+<p>如何提供 CDM 不是由 EME 规范定义的，但在所有情况下，浏览器都负责审核和公开 CDM。<br></p>
+<p>EME 不要求特定的关键系统; 在目前的桌面和移动浏览器中，Chrome 支持 Widevine，IE11 支持 PlayReady。<br></p>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2024/01/21/%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2024/01/21/%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95/";
+            const title         = "「加密媒体扩展」";
+            const excerpt       = `加密媒体扩展(Encrypted Media Extensions)介绍加密媒体扩展（Encrypted Media Extensions）提供了一种 API，可以使 Web 应用程序与内容保护系统进行交互，以允许播放加密的音频和视频...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/EME/" rel="tag">EME</a>, <a class="tag-none-link" href="/tags/%E6%B5%81%E5%AA%92%E4%BD%93/" rel="tag">流媒体</a>, <a class="tag-none-link" href="/tags/%E7%9B%B4%E6%92%AD/" rel="tag">直播</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2025-06-23T01:31:46.724Z" itemprop="dateModified">最后编辑：2025-06-23</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" CDN与PCDN" href="/2024/01/20/CDN及PCDN/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" Jest 测试工具（1）" href="/2024/02/19/jest(1)/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+        <div id="w-comments" class="post-comments"></div>
+<link rel="stylesheet" href="/vendors/@waline/client@2.14.1/dist/waline.css" />
+<script>
+    var load_comm = () => {
+        const init = () => {
+            Waline.init(Object.assign({
+                el: '#w-comments',
+                path: '/2024/01/21/%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95/',
+                dark: 'html[data-theme="dark"]',
+            }, JSON.parse('{"serverURL":"https://myblog-api-hazel.vercel.app","comment":true,"pageview":true}')));
+        }
+        if (typeof Waline === 'undefined') {
+            const src = '/vendors/@waline/client@2.14.1/dist/waline.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
+
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="https://greenhaha.oss-cn-beijing.aliyuncs.com/frontend/assets/header/header.png" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">一个从躺平状态站起来并开始折腾自己二次元开发者</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                60
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                7
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                50
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95-Encrypted-Media-Extensions"><span class="toc-text">加密媒体扩展(Encrypted Media Extensions)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EME-%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C"><span class="toc-text">EME 如何工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%86-CDM-%E7%A9%B6%E7%AB%9F%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F"><span class="toc-text">但 CDM 究竟做了什么呢？</span></a></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%A8%E6%96%B0%E4%BD%93%E9%AA%8C/">全新体验</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%A4%A7%E5%85%A8/">工具大全</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%A1%A3%E6%95%99%E7%A8%8B/">文档教程</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%89%96%E6%9E%90/">知识剖析</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/">规范总结</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E5%88%92%E6%80%BB%E7%BB%93/">计划总结</a><span class="category-list-count">3</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/2023/" style="font-size: 0.6em;">2023</a> <a href="/tags/API/" style="font-size: 0.6em;">API</a> <a href="/tags/CSS/" style="font-size: 0.64em;">CSS</a> <a href="/tags/ELM/" style="font-size: 0.64em;">ELM</a> <a href="/tags/EME/" style="font-size: 0.6em;">EME</a> <a href="/tags/HTML/" style="font-size: 0.68em;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 0.8em;">JavaScript</a> <a href="/tags/JavaScript%E6%8A%80%E6%9C%AF/" style="font-size: 0.6em;">JavaScript技术</a> <a href="/tags/Node/" style="font-size: 0.76em;">Node</a> <a href="/tags/React/" style="font-size: 0.68em;">React</a> <a href="/tags/ReactNative/" style="font-size: 0.72em;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 0.6em;">TypeScript</a> <a href="/tags/Vue/" style="font-size: 0.6em;">Vue</a> <a href="/tags/chromeAPI/" style="font-size: 0.6em;">chromeAPI</a> <a href="/tags/express/" style="font-size: 0.64em;">express</a> <a href="/tags/express-session/" style="font-size: 0.6em;">express-session</a> <a href="/tags/git/" style="font-size: 0.6em;">git</a> <a href="/tags/google/" style="font-size: 0.6em;">google</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2025/06/23/2025%E5%B9%B4%E6%80%BB%E7%BB%93/"><i class="fa  fa-book"></i> 2025年年中总结</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/02/19/jest(1)/"><i class="fa  fa-book"></i> Jest 测试工具（1）</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/21/%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95/"><i class="fa  fa-book"></i> 加密媒体扩展</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/20/CDN%E5%8F%8APCDN/"><i class="fa  fa-book"></i> CDN与PCDN</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2024/01/14/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%90%8C%E6%AD%A5%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/"><i class="fa  fa-book"></i> 音视频同步原理及实现</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        <li><a href="mailto:a15114101085@aliyun.com"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/greenhaha"><i class="fa fa-github"></i></a></li>
+                        
+                        <!-- New links -->
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2025 彼方のE栈 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by 境界の彼方.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">辽ICP备19004490号-2</a></li>
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>
